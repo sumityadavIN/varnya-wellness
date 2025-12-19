@@ -87,22 +87,22 @@ title: Contact Us
           <div class="social-icons">
             <a href="https://instagram.com/varnyawellness" target="_blank" aria-label="Instagram" class="social-link">
               <!-- Instagram SVG -->
-              <img src="/assets/instagram.svg" alt="Instagram" style="width: 28px; height: 28px;">
+              <img src="{{ '/assets/instagram.svg' | relative_url }}" alt="Instagram" style="width: 28px; height: 28px;">
             </a>
 
             <a href="https://facebook.com/varnyawellness" target="_blank" aria-label="Facebook" class="social-link">
               <!-- Facebook SVG -->
-              <img src="/assets/facebook.svg" alt="Facebook" style="width: 28px; height: 28px;">
+              <img src="{{ '/assets/facebook.svg' | relative_url }}" alt="Facebook" style="width: 28px; height: 28px;">
             </a>
 
             <a href="https://wa.me/917827000875" target="_blank" aria-label="WhatsApp" class="social-link">
               <!-- WhatsApp PNG -->
-              <img src="/assets/whatsapp.png" alt="WhatsApp" style="width: 28px; height: 28px;">
+              <img src="{{ '/assets/whatsapp.png' | relative_url }}" alt="WhatsApp" style="width: 28px; height: 28px;">
             </a>
 
             <a href="mailto:info@varnyawellness.com" aria-label="Email" class="social-link">
               <!-- Email PNG -->
-              <img src="/assets/mail.png" alt="Email" style="width: 28px; height: 28px;">
+              <img src="{{ '/assets/mail.png' | relative_url }}" alt="Email" style="width: 28px; height: 28px;">
             </a>
           </div>
         </div>
@@ -112,9 +112,10 @@ title: Contact Us
   </div>
 </section>
 
-    <script src="/scripts/utils.js" defer></script>
-    <script src="/scripts/nav.js" defer></script>
-    <script src="/scripts/reveal.js" defer></script>
-    <script src="/scripts/main.js" defer></script>
+    <script src="{{ '//scripts/utils.js' | relative_url }}" defer></script>
+    <script src="{{ '//scripts/nav.js' | relative_url }}" defer></script>
+    <script src="{{ '//scripts/reveal.js' | relative_url }}" defer></script>
+    <script src="{{ '//scripts/main.js' | relative_url }}" defer></script>
 </body>
+
 </html>

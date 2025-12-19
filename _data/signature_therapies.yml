@@ -1,0 +1,29 @@
+- title: "Abhyangam"
+  image: "/assets/images/abhyanga.jpg"
+  url: "/therapies/abhyangam/"
+  desc: "A traditional full-body massage using warm, medicated herbal oils tailored to your dosha to improve circulation and relieve fatigue."
+
+- title: "Shirodhara"
+  image: "/assets/images/shirodhara.jpg"
+  url: "/therapies/shirodhara/"
+  desc: "A profound relaxation therapy where a continuous stream of warm oil is poured onto the forehead to calm the nervous system."
+
+- title: "Virechana"
+  image: "/assets/images/virechana.jpg"
+  url: "/therapies/virechana/"
+  desc: "A controlled therapeutic purgation that eliminates excess Pitta toxins from the body, ideal for skin disorders and metabolic balance."
+
+- title: "Nasya"
+  image: "/assets/images/nasya.jpg"
+  url: "./therapies/nasya/"
+  desc: "The administration of herbal oils through the nasal passage to clear congestion, improve mental clarity, and treat migraines."
+
+- title: "Potli Massage"
+  image: "/assets/images/potli.jpg"
+  url: "/therapies/potli/"
+  desc: "A rejuvenating therapy using warm herbal pouches (boluses) to alleviate chronic joint pain, stiffness, and inflammation."
+
+- title: "Udvartana"
+  image: "/assets/images/udvartana.jpg"
+  url: "/therapies/udvartana/"
+  desc: "A deep-tissue lymphatic massage using dry herbal powders to stimulate metabolism, reduce cellulite, and exfoliate the skin."

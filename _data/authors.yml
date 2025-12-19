@@ -1,0 +1,9 @@
+ayushi:
+  name: "Dr. Ayushi Bhardwaj"
+  bio: "Expert in Ayurvedic Detox and Veda Diet."
+  image: "/assets/draayushi.jpeg"
+
+rajan:
+  name: "Dr. Rajan Arya"
+  bio: "Specializing in Chronic Pain Management."
+  image: "/assets/drrajan.jpeg"

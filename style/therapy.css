@@ -1,0 +1,81 @@
+/* --- THERAPY GRID LAYOUT --- */
+.therapy-grid {
+    display: grid;
+    /* Forces wide, substantial cards */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 40px 0;
+}
+
+/* --- THERAPY CARD --- */
+.therapy-card {
+    position: relative;
+    height: 350px; /* Fixed height to prevent "missing" cards */
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end; /* Pushes text to the bottom */
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid var(--border-color); /* */
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Hover Effect: Zoom image and glow */
+.therapy-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color); /* */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* --- TEXT OVERLAY --- */
+.therapy-overlay {
+    width: 100%;
+    padding: 30px;
+    /* Gradient ensures text is readable regardless of the background image */
+    background: linear-gradient(to top, 
+        rgba(11, 15, 13, 0.9) 0%, 
+        rgba(11, 15, 13, 0.4) 60%, 
+        transparent 100%); /* */
+    transition: background 0.3s ease;
+}
+
+.therapy-card:hover .therapy-overlay {
+    background: linear-gradient(to top, 
+        var(--secondary-color) 0%, 
+        rgba(197, 160, 89, 0.2) 100%); /* */
+}
+
+.therapy-overlay h3 {
+    color: var(--primary-color); /* */
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.therapy-overlay .byline {
+    color: var(--text-light); /* */
+    margin: 5px 0 0 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+/* --- ANCHOR OFFSET FIX --- */
+/* Prevents the header from covering the card when navigating via ID links */
+.anchor-offset {
+    scroll-margin-top: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .therapy-card {
+        height: 280px;
+    }
+    .therapy-grid {
+        grid-template-columns: 1fr;
+    }
+}

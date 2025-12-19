@@ -1,0 +1,191 @@
+/* --- BLOG GRID --- */
+.blog-grid {
+    display: grid;
+    /* Forces wider cards (min 380px) and centers them */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+    gap: 30px;
+    padding: 40px 0;
+}
+
+/* --- BLOG CARD --- */
+.blog-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; /* Stack image and content vertically */
+    height: 100%; /* Ensures cards in a row are equal height */
+    transition: all 0.4s ease;
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+/* Image & Placeholder Styling */
+.blog-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--border-color);
+    transition: transform 0.5s ease;
+}
+
+.blog-card:hover .blog-image {
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.blog-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Pushes footer content to the bottom */
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.blog-content h4 {
+    font-size: 1.4rem;
+    color: var(--text-dark); /* Off-white in your dark theme */
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.blog-content p {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* --- READ ARTICLE LINK (FIXED VANISHING ISSUE) --- */
+.read-more-link {
+    margin-top: auto; /* Pins link to the bottom of the content area */
+    color: var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+/* Ensure visibility on card hover */
+.blog-card:hover .read-more-link {
+    color: var(--white); /* Turns white when card is hovered */
+}
+
+.read-more-link span {
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover .read-more-link span {
+    transform: translateX(5px);
+}
+
+/* --- INTERNAL POST PAGE STYLING --- */
+.post-header {
+    padding: 100px 0 50px;
+    text-align: center;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8), var(--bg));
+}
+
+.post-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+    color: var(--primary-color);
+    margin: 40px 0 20px;
+}
+
+.post-content img {
+    width: 100%;
+    border-radius: 15px;
+    margin: 30px 0;
+}
+
+.post-lead {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    border-left: 3px solid var(--accent-color);
+    padding-left: 20px;
+}
+
+.wellness-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--accent-color);
+    padding: 30px;
+    border-radius: 12px;
+    margin: 40px 0;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+.img-cinematic {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin: 40px 0;
+    border: 1px solid var(--border-color);
+}
+
+.img-float-right {
+    float: right;
+    width: 40%;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+@media (max-width: 768px) { .img-float-right { float: none; width: 100%; margin: 20px 0; } }
+
+blockquote.gold-quote {
+    font-family: 'Host Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    border: none;
+    margin: 60px 0;
+    line-height: 1.4;
+    position: relative;
+}
+/* Add big quote marks */
+blockquote.gold-quote::before {
+    content: "“";
+    font-size: 4rem;
+    color: var(--accent-color);
+    display: block;
+    margin-bottom: -40px;
+    opacity: 0.3;
+}
+
+.post-grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin: 40px 0;
+}
+@media (max-width: 768px) { .post-grid-2 { grid-template-columns: 1fr; } }

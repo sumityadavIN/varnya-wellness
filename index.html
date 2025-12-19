@@ -1,0 +1,246 @@
+---
+layout: default
+title: Varnya Wellness | Authentic Ayurvedic Care in Gurgaon
+description: Experience holistic healing at Varnya Wellness in Sector 47, Gurgaon. Offering authentic Ayurvedic therapies, Panchakarma detox, and specialized treatments for overall well-being.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ '/style/scroll.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/style/testimonial.css' | relative_url }}">
+
+</head>
+<body>
+
+
+    <section class="hero">
+        <div class="container reveal">
+            <h1>Ayurvedic Panchakarma Treatment</h1>
+            <h3>~ The Science of Ayurvedic Healing and Restoration ~</h3>
+            <p style="color: #eee; max-width: 700px; margin: 0 auto 30px auto;">
+                Panchakarma is the magical methodology in Ayurveda that solves many ailments. It promotes good health, preventive benefits, and curative power.
+            </p>
+            <a href="{{ '/contact/' | relative_url }}#contact-form-card" class="cta-button">Enquire Now</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container reveal">
+            <h2 class="section-title">Why Do You Need Panchakarma?</h2>
+            <div class="content-box">
+                <p><strong>Container for content:</strong> "Panchakarma's literal translation is Five Purification Procedures. It is designed to release years of emotional, physical and mental baggage..."</p>
+                <p>[Update this text with Varnya Wellness specific philosophy]</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-section">
+        <div class="container reveal">
+            <h2 class="section-title">What Should I Expect?</h2>
+            <div class="content-box" style="background: transparent; border: none; box-shadow: none;">
+                <p><strong>Container for content:</strong> "Panchakarma treatments are totally individualized. It offers Ayurvedic consultation, advice on a diet based on one's body type..."</p>
+                <p>[Update this text with details about Varnya's consultation process]</p>
+            </div>
+        </div>
+    </section>
+
+<section id="treatments" class="alt-section">
+    <div class="container reveal">
+        <h2 class="section-title">Our Signature Therapies</h2>
+        
+        <div class="scroll-wrapper infinite-scroll">
+            
+            {% for therapy in site.data.signature_therapies %}
+            <a href="{{ therapy.url | relative_url }}" class="scroll-card">
+                <img src="{{ therapy.image | relative_url }}" alt="{{ therapy.title }}">
+                <div class="card-details">
+                    <h4>{{ therapy.title }}</h4>
+                    <p>{{ therapy.desc }}</p>
+                    <span class="view-btn">View Treatment &rarr;</span>
+                </div>
+            </a>
+            {% endfor %}
+
+        </div>
+        
+    </div>
+</section> 
+
+    <section id="benefits">
+        <div class="container reveal">
+            <h2 class="section-title">Benefits of Panchakarma</h2>
+            
+            <div class="benefits-stack">
+                <div class="benefit-row row-3">
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Purifies Body</h4>
+                            <p class="tagline">Eliminates deep-seated impurities and restores natural balance.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Removes Toxins</h4>
+                            <p class="tagline">Cleanses the system of accumulated Ama (metabolic waste).</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Boosts Metabolism</h4>
+                            <p class="tagline">Rekindles Agni (digestive fire) for better nutrient absorption.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-row row-4">
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Weight Management</h4>
+                            <p class="tagline">Helps in natural and sustainable weight reduction.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Opens Channels</h4>
+                            <p class="tagline">Clears micro-channels (Srotas) for free flow of energy.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Relaxes Mind</h4>
+                            <p class="tagline">Reduces stress and anxiety while promoting mental clarity.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Balances Doshas</h4>
+                            <p class="tagline">Harmonizes Vata, Pitta, and Kapha for total equilibrium.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="benefit-row row-3">
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Boosts Immunity</h4>
+                            <p class="tagline">Strengthens the body's natural defense mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Rejuvenates Tissue</h4>
+                            <p class="tagline">Nourishes deep tissues (Dhatus) for vitality.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-glass-card">
+                        <div class="card-content">
+                            <h4>Improves Longevity</h4>
+                            <p class="tagline">Promotes cellular health for a longer, healthier life.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="therapies" >
+        <div class="container reveal">
+            <h2 class="section-title">The 5 Therapeutic Treatments</h2>
+            <p style="text-align: center;">The 5 Panchakarma therapeutic treatments are:</p>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-top: 30px;">
+                <span class="cta-button" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);">VAMANA</span>
+                <span class="cta-button" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);">VIRECHANA</span>
+                <span class="cta-button" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);">NASYA</span>
+                <span class="cta-button" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);">BASTI</span>
+                <span class="cta-button" style="background: transparent; color: var(--primary-color); border: 1px solid var(--primary-color);">RAKTAMOKSHANA</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="alt-section">
+        <div class="container reveal">
+            <h2 class="section-title">Signs You Need a Detox</h2>
+            <div class="content-box check-list" style="max-width: 700px; margin: 0 auto;">
+                <ul>
+                    <li>You are always tired or fatigued.</li>
+                    <li>You are restless, unable to focus, or anxious.</li>
+                    <li>You have chronic digestive issues.</li>
+                    <li>You are suffering from regular skin ailments.</li>
+                    <li>You have unexplained aches and pains.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="alt-section">
+        <div class="container reveal">
+            <h2 class="section-title">Panchakarma FAQs</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Can I do this if I am healthy? <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Yes, Panchakarma is ideal for healthy people too as it helps in cleansing and rejuvenation, preventing future ailments.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        When should I go for it? <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>It is recommended during the change of seasons (Spring/Autumn) or when you feel deep impairment of doshas.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        Can I go to work during treatment? <span>+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Rest is advised. However, if your work is not physically demanding, you may continue to work.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section style="overflow: hidden; padding-bottom: 100px;">
+        <div class="container reveal">
+            <h2 class="section-title">Patient Stories</h2>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-track">
+                    <div class="testimonial-item">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <img src="{{ '/assets/ritu_review.jpeg' | relative_url }}" alt="Ritu" class="testimonial-img">
+                        <p class="testimonial-text">"Life-changing experience with Dr. Ayushi and Dr. Rajan at Varnya Wellness. Panchkarma cured my PCOD, acne, and weight issues."</p>
+                        <p class="testimonial-author">Ritu Sheroan</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <img src="{{ '/assets/kiran_review.jpeg' | relative_url }}" alt="Kiran" class="testimonial-img">
+                        <p class="testimonial-text">"Visited Varnya Wellness for a Panchkarma session, and it was incredibly rejuvenating."</p>
+                        <p class="testimonial-author">Kirandeep</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <img src="{{ '/assets/romet_review.jpeg' | relative_url }}" alt="Romet" class="testimonial-img">
+                        <p class="testimonial-text">"Super sweet and caring staff! Highly recommend anyone with a skin issue to give them a visit! "</p>
+                        <p class="testimonial-author">Romet</p>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <img src="{{ '/assets/Olivia_review.jpeg' | relative_url }}" alt="Olivia" class="testimonial-img">
+                        <p class="testimonial-text">"Excellent services at Varnya. Dr. Rajan and his staff are very professional, warm and kind.Thank you for the super sessions."</p>
+                        <p class="testimonial-author">Olivia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

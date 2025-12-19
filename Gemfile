@@ -1,9 +1,5 @@
-source 'https://rubygems.org'
-gem 'jekyll', '~> 4.2'
-gem 'webrick', '~> 1.7' # optional fallback
-gem 'wdm', '>= 0.1.0'
+source "https://rubygems.org"
 
-group :jekyll_plugins do
-  gem "jekyll-seo-tag"
-  gem "jekyll-sitemap"
-end
+# This line is the magic key. It locks your local environment 
+# to match GitHub's server exactly.
+gem "github-pages", group: :jekyll_plugins

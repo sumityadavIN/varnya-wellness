@@ -2,7 +2,7 @@
 
 The official website for **Varnya Wellness**, a premium Ayurveda and Panchakarma clinic in Gurugram. This site is built with **Jekyll**, hosted on **GitHub Pages**, and designed with a custom "Dark Gold" editorial aesthetic.
 
-🔗 **Live Site:** [https://YOUR_USERNAME.github.io/varnya-website/](https://sumityadavIN.github.io/varnya-website/)
+🔗 **Live Site:** [https://sumityadavIN.github.io/varnya-website/](https://sumityadavIN.github.io/varnya-website/)
 
 ---
 

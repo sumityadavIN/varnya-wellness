@@ -1,0 +1,197 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ '/style/blog.css' | relative_url }}">
+    
+    <style>
+        /* --- THE HARD RESET (NUCLEAR OPTION) --- */
+
+        /* 1. Force the Main container to start WAY down the page */
+        .post-layout-reset {
+            padding-top: 180px !important; /* 80px Navbar + 100px Gap. Cannot be ignored. */
+            display: block !important;
+            position: relative !important;
+            width: 100%;
+            background-color: var(--bg);
+            z-index: 1;
+        }
+
+        /* 2. The Container: Standard Block Flow */
+        .post-container-standard { 
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            display: block !important; /* No Flex, No Grid, just standard stacking */
+        }
+
+        /* 3. The Header: Title + Byline */
+        .post-header-standard { 
+            text-align: center; 
+            margin-bottom: 80px !important; /* Huge unbreakable margin below byline */
+            position: relative !important;
+        }
+
+        .post-header-standard h1 { 
+            font-size: clamp(2.5rem, 6vw, 4rem); 
+            line-height: 1.1;
+            color: var(--primary-color);
+            font-weight: 900;
+            margin: 0 0 30px 0 !important; /* Space between Title and Byline */
+        }
+
+        /* 4. The Byline Block */
+        .byline-block-standard {
+            display: block !important;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative !important;
+        }
+
+        .byline-hr {
+            border: 0;
+            border-top: 1px solid var(--border-color);
+            margin: 15px 0;
+            opacity: 0.5;
+        }
+
+        .author-text { 
+            color: var(--accent-color);
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 5px; 
+            font-size: 13px; 
+            display: block;
+            padding: 5px 0;
+        }
+
+        /* 5. The Image: Forced Block */
+        .post-hero-standard { 
+            display: block !important; /* Prevents text wrapping or overlap */
+            width: 100%; 
+            height: auto; 
+            max-height: 650px;
+            object-fit: cover;
+            border-radius: 40px; 
+            border: 1px solid var(--border-color);
+            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+            margin-top: 0 !important; /* Resets any negative margins */
+            margin-bottom: 80px !important;
+            position: relative !important;
+            z-index: 1;
+        }
+
+        /* 6. Content Body */
+        .post-content-standard { 
+            font-size: 1.25rem; 
+            line-height: 2; 
+            color: var(--text-dark) !important;
+            max-width: 850px; 
+            margin: 0 auto;
+            display: block !important;
+        }
+
+        /* 7. Author Bio (Standard Box) */
+        .author-bio-box {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 80px auto;
+            max-width: 850px;
+        }
+        
+        /* UPDATED BIO PIC STYLING */
+        .bio-pic { 
+            width: 110px; 
+            height: 110px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            /* Shifts the focus to the top 25% of the image, pushing the content down */
+            object-position: center 25%; 
+            border: 2px solid var(--accent-color); 
+            flex-shrink: 0; 
+        }
+
+        .bio-details h4 { color: var(--primary-color); font-size: 1.4rem; margin: 0 0 5px 0; }
+        .bio-sub { color: var(--accent-color); font-size: 0.8rem; text-transform: uppercase; font-weight: 700; }
+        .bio-desc { color: var(--text-light); margin-top: 10px; font-size: 1rem; line-height: 1.6; }
+
+        /* 8. CTA & Footer */
+        .cta-standard {
+                background-image: 
+                    linear-gradient(
+                        rgba(0, 0, 0, 0.5), /* Start color: Black at 50% opacity */
+                        rgba(0, 0, 0, 0.5)  /* End color: Black at 50% opacity */
+                    ),
+                    url('/assets/cta-banner.jpg');
+                background-size: cover;
+                background-position: center;
+                color: #ffffff; 
+                backdrop-filter: blur(15px);
+                border-radius: 24px;
+                padding: 60px 40px;
+                text-align: center;
+                border: 1px solid var(--border-color);
+                max-width: 850px;
+                margin: 0 auto 80px;
+            }
+        .footer-standard { text-align: center; padding-top: 60px; border-top: 1px solid var(--border-color); margin-top: 60px; }
+        .btn-standard { display: inline-block; padding: 18px 45px; border: 1px solid var(--accent-color); color: var(--primary-color); border-radius: 100px; text-decoration: none; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
+        .btn-standard:hover { background: var(--accent-color); color: #000; transform: translateY(-5px); }
+
+        @media (max-width: 768px) { .author-bio-box { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+
+    {% assign doctor = site.data.authors[page.author] %}
+
+    <main class="post-layout-reset">
+        <div class="post-container-standard">
+            
+            <header class="post-header-standard reveal">
+                <h1>{{ page.title }}</h1>
+                
+                <div class="byline-block-standard">
+                    <hr class="byline-hr">
+                    <span class="author-text">By {{ doctor.name | default: page.author }}</span>
+                    <hr class="byline-hr">
+                </div>
+            </header>
+
+            {% if page.image %}
+            <img src="{{ page.image | relative_url }}" alt="{{ page.title }}" class="post-hero-standard reveal">
+            {% endif %}
+
+            <div class="post-content-standard reveal">
+                {{ content }}
+            </div>
+
+            {% if doctor %}
+            <section class="author-bio-box reveal">
+                <img src="{{ doctor.image | relative_url }}" alt="{{ doctor.name }}" class="bio-pic">
+                <div class="bio-details">
+                    <span class="bio-sub">{{ doctor.role }}</span>
+                    <h4>{{ doctor.name }}</h4>
+                    <p class="bio-desc">{{ doctor.bio }}</p>
+                </div>
+            </section>
+            {% endif %}
+
+            <footer class="footer-standard reveal">
+                <a href="{{ '/blog/' | relative_url }}" class="btn-standard">
+                    &larr; Return to Wellness Journal
+                </a>
+            </footer>
+
+        </div>
+    </main>
+
+</body>
+</html>

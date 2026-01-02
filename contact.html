@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Consultation | Varnya Wellness Ayurvedic Clinic Gurugram</title>
+    <meta name="description" content="Book your Ayurvedic consultation at Varnya Wellness, Sector 47 Gurugram. Call +91 782 700 0875 or book online. Expert Panchakarma treatments.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+        /* Contact Page Specific Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--sage);
+            box-shadow: 0 0 0 4px rgba(156, 175, 136, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info-card {
+            background: linear-gradient(135deg, var(--sage), var(--gold));
+            padding: 50px;
+            border-radius: 30px;
+            color: white;
+        }
+
+        .contact-info-item {
+            margin-bottom: 35px;
+            display: flex;
+            align-items: start;
+            gap: 20px;
+        }
+
+        .contact-info-item i {
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-info-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info-item a:hover {
+            opacity: 0.8;
+        }
+
+        .map-container {
+            margin-top: 40px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .hours-item {
+            background: rgba(255,255,255,0.15);
+            padding: 15px 20px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 968px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div id="header-placeholder"></div>
+
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 50vh; padding: 180px 6% 80px;">
+        <div class="hero-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="eyebrow">Get Started Today</span>
+            <h1 style="max-width: 100%;">Book Your Consultation</h1>
+            <p style="max-width: 700px; margin: 0 auto;">Take the first step towards natural healing. Our expert doctors are ready to help you achieve optimal health.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section style="padding: 100px 6%; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 15px; color: var(--charcoal);">Send Us a Message</h2>
+                    <p style="color: #5a5a5a; margin-bottom: 35px; line-height: 1.7;">Fill out the form below and our wellness experts will get back to you within 24 hours.</p>
+
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <!-- Replace with your actual Web3Forms access key -->
+                        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Consultation Request from Varnya Website">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Mobile Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required pattern="[0-9+\s-]+">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="treatment">Interested In</label>
+                            <select id="treatment" name="treatment">
+                                <option value="">Select a service (optional)</option>
+                                <optgroup label="Aesthetic Treatments">
+                                    <option value="Hydra Facial">Hydra Facial</option>
+                                    <option value="Meso Glow">Meso Glow Facial</option>
+                                    <option value="Carbon Laser">Carbon Laser Facial</option>
+                                    <option value="Vampire Facial">Vampire Facial (PRP)</option>
+                                    <option value="Laser Hair Reduction">Laser Hair Reduction</option>
+                                    <option value="Tattoo Removal">Tattoo Removal</option>
+                                    <option value="Chemical Peel">Chemical Peel</option>
+                                    <option value="Hair PRP">Hair PRP/GFC</option>
+                                    <option value="Gluta IV">Gluta I.V. Drip</option>
+                                </optgroup>
+                                <optgroup label="Ayurvedic Therapies">
+                                    <option value="Panchakarma">Panchakarma Detox</option>
+                                    <option value="Shirodhara">Shirodhara</option>
+                                    <option value="Abhyanga">Abhyanga Massage</option>
+                                    <option value="Potli">Potli Massage</option>
+                                    <option value="Basti">Basti Therapy</option>
+                                    <option value="Nasya">Nasya</option>
+                                </optgroup>
+                                <optgroup label="Specialized Programs">
+                                    <option value="Weight Loss">Weight Loss Program</option>
+                                    <option value="Diabetes">Diabetes Management</option>
+                                    <option value="Pain Management">Pain Management</option>
+                                    <option value="Skin Disorders">Skin Disorders (Psoriasis, Eczema)</option>
+                                    <option value="Hair Loss">Hair Loss / Alopecia</option>
+                                </optgroup>
+                                <option value="General">General Consultation</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">How Can We Help You?</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your health concerns or questions..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1.1rem; padding: 18px;">
+                            Send Message
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+
+                        <p style="font-size: 0.85rem; color: #999; margin-top: 15px; text-align: center;">
+                            We respect your privacy. Your information is safe with us.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <div class="contact-info-card">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2rem; margin-bottom: 30px;">Get In Touch</h3>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 8px; font-size: 1.1rem;">Visit Us</h4>
+                                <a href="https://maps.app.goo.gl/CCapT8dG8BMvXSCo7" target="_blank" style="line-height: 1.7;">
+                                    7-P, Pocket A, Sector 47,<br>
+                                    Gurugram, Haryana 122018
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 8px; font-size: 1.1rem;">Call Us</h4>
+                                <a href="tel:917827000875" style="font-size: 1.2rem; font-weight: 600;">+91 782 700 0875</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 8px; font-size: 1.1rem;">Email Us</h4>
+                                <a href="mailto:care@varnyawellness.com">care@varnyawellness.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4 style="font-weight: 600; margin-bottom: 15px; font-size: 1.1rem;">Clinic Hours</h4>
+                                <div class="hours-grid">
+                                    <div class="hours-item">
+                                        <strong>Mon - Sat</strong><br>
+                                        9:00 AM - 7:00 PM
+                                    </div>
+                                    <div class="hours-item">
+                                        <strong>Sunday</strong><br>
+                                        10:00 AM - 4:00 PM
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="map-container">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Varnya+Wellness+Sector+47+Gurgaon+Haryana&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="300"
+                                style="border:0;"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUICK CONTACT OPTIONS - CONVERSION -->
+    <section style="padding: 80px 6%; background: var(--cream);">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+            <h2 class="section-title split-lines">Prefer to Talk Directly?</h2>
+            <p class="section-subtitle split-lines" style="margin-bottom: 50px;">Choose your preferred way to reach us</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
+                <a href="tel:917827000875" class="philosophy-card" style="text-decoration: none; text-align: center; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; min-height: 220px;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--sage), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; position: relative;">
+                        <i class="fas fa-phone" style="font-size: 1.8rem; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--charcoal);">Call Now</h3>
+                    <p style="color: var(--sage); font-weight: 600; font-size: 1.1rem; margin: 0;">+91 782 700 0875</p>
+                </a>
+
+                <a href="https://wa.me/917827000875" target="_blank" class="philosophy-card" style="text-decoration: none; text-align: center; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; min-height: 220px;">
+                    <div style="width: 70px; height: 70px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; position: relative;">
+                        <i class="fab fa-whatsapp" style="font-size: 1.8rem; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--charcoal);">WhatsApp</h3>
+                    <p style="color: #5a5a5a; margin: 0;">Quick response guaranteed</p>
+                </a>
+
+                <a href="mailto:care@varnyawellness.com" class="philosophy-card" style="text-decoration: none; text-align: center; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; min-height: 220px;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--gold), var(--terracotta)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; position: relative;">
+                        <i class="fas fa-envelope" style="font-size: 1.8rem; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--charcoal);">Email Us</h3>
+                    <p style="color: #5a5a5a; margin: 0;">care@varnyawellness.com</p>
+                </a>
+
+                <a href="https://maps.app.goo.gl/CCapT8dG8BMvXSCo7" target="_blank" class="philosophy-card" style="text-decoration: none; text-align: center; padding: 40px 30px; display: flex; flex-direction: column; align-items: center; min-height: 220px;">
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--terracotta), var(--sage)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; position: relative;">
+                        <i class="fas fa-map-marked-alt" style="font-size: 1.8rem; color: white; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 10px; color: var(--charcoal);">Visit Clinic</h3>
+                    <p style="color: #5a5a5a; margin: 0;">Sector 47, Gurugram</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION - REDUCE FRICTION -->
+    <section style="padding: 100px 6%; background: white;">
+        <div style="max-width: 900px; margin: 0 auto;">
+            <h2 class="section-title split-lines">Common Questions</h2>
+            <p class="section-subtitle split-lines" style="margin-bottom: 60px;">Everything you need to know before booking</p>
+
+            <div style="display: grid; gap: 25px;">
+                <div style="background: var(--cream); padding: 35px; border-radius: 20px; border-left: 4px solid var(--sage);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">
+                        <i class="fas fa-question-circle" style="color: var(--sage); margin-right: 10px;"></i>
+                        Do I need to book in advance?
+                    </h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Yes, we recommend booking 2-3 days in advance to ensure availability. For urgent consultations, please call us directly.</p>
+                </div>
+
+                <div style="background: var(--cream); padding: 35px; border-radius: 20px; border-left: 4px solid var(--gold);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">
+                        <i class="fas fa-question-circle" style="color: var(--gold); margin-right: 10px;"></i>
+                        What should I bring to my first appointment?
+                    </h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Please bring any medical records, recent test results, and a list of current medications. Wear comfortable clothing for pulse diagnosis.</p>
+                </div>
+
+                <div style="background: var(--cream); padding: 35px; border-radius: 20px; border-left: 4px solid var(--terracotta);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">
+                        <i class="fas fa-question-circle" style="color: var(--terracotta); margin-right: 10px;"></i>
+                        How long does a consultation take?
+                    </h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Initial consultations typically last 45-60 minutes. This includes pulse diagnosis, health history review, and personalized treatment plan.</p>
+                </div>
+
+                <div style="background: var(--cream); padding: 35px; border-radius: 20px; border-left: 4px solid var(--sage);">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">
+                        <i class="fas fa-question-circle" style="color: var(--sage); margin-right: 10px;"></i>
+                        Do you accept insurance?
+                    </h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">We provide detailed invoices that you can submit to your insurance company for potential reimbursement. Please check with your provider about Ayurvedic treatment coverage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="scripts/includes.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

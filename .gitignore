@@ -1,0 +1,48 @@
+# Exclude archive folder (local development only)
+archive/
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# IDE and Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+
+# Log Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local Configuration
+*.local
+.env
+.env.local
+
+# Dependency Directories (if added later)
+node_modules/
+vendor/
+
+# Build Outputs (if added later)
+dist/
+build/
+
+# Temporary Files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Documentation that's only for local reference
+IMPLEMENTATION_SUMMARY.md

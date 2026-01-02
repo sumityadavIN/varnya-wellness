@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Treatments & Panchakarma Therapy | Varnya Wellness Gurugram</title>
+    <meta name="description" content="Authentic Ayurvedic treatments and Panchakarma therapy in Gurugram. Abhyanga, Shirodhara, Nasya, Vamana, Virechana, and Basti treatments by expert doctors.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+        /* Treatment Card Styles */
+        .treatment-card-large {
+            position: relative;
+            height: 500px;
+            border-radius: 30px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .treatment-card-large:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+        }
+
+        .treatment-card-large img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .treatment-card-large:hover img {
+            transform: scale(1.08);
+        }
+
+        .treatment-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+            padding: 50px 40px;
+            color: white;
+            transition: all 0.5s ease;
+        }
+
+        .treatment-card-large:hover .treatment-overlay {
+            padding: 60px 40px;
+        }
+
+        .treatment-badge {
+            display: inline-block;
+            background: var(--sage);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            border-left: 4px solid var(--sage);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .benefit-item i {
+            font-size: 2rem;
+            color: var(--sage);
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .treatment-card-large {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <div id="header-placeholder"></div>
+
+
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 60vh; padding: 180px 6% 80px;">
+        <div class="hero-content" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <span class="eyebrow">Authentic Ayurvedic Therapies</span>
+            <h1 style="max-width: 100%;">Natural Healing for Mind, Body & Spirit</h1>
+            <p style="max-width: 700px; margin: 0 auto;">Discover traditional Panchakarma and therapeutic treatments designed to restore balance, detoxify, and rejuvenate your entire being.</p>
+        </div>
+    </section>
+
+    <!-- SCROLL DOWN INDICATOR -->
+    <div class="scroll-indicator">
+        <div class="mouse"></div>
+        <span class="scroll-text">Scroll</span>
+    </div>
+
+    <!-- FEATURED TREATMENT - PANCHAKARMA -->
+    <section id="panchkarma" style="padding: 100px 6%; background: white; scroll-margin-top: 100px;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div class="treatment-card-large">
+                <img src="https://images.unsplash.com/photo-1545205597-3d9d02c29597?q=80&w=1200" alt="Panchakarma Therapy">
+                <div class="treatment-overlay">
+                    <span class="treatment-badge">SIGNATURE TREATMENT</span>
+                    <h2 style="font-family: 'Cormorant', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 15px;">Panchakarma</h2>
+                    <p style="font-size: 1.3rem; margin-bottom: 20px; opacity: 0.95;">The Ultimate Five-Fold Detoxification</p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; opacity: 0.9; margin-bottom: 25px;">
+                        Transform your health through the ancient science of deep detoxification. Panchakarma removes toxins at the cellular level, restores dosha balance, and rejuvenates your body's natural healing capacity.
+                    </p>
+                    <a href="contact.html" class="btn-primary" style="display: inline-flex;">
+                        Book Panchakarma
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-wind"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--charcoal);">Vamana</h3>
+                    <p style="color: #5a5a5a; line-height: 1.7;">Therapeutic emesis to eliminate Kapha toxins. Ideal for respiratory disorders, skin conditions, and metabolic issues.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-droplet"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--charcoal);">Virechana</h3>
+                    <p style="color: #5a5a5a; line-height: 1.7;">Controlled purgation to cleanse Pitta. Effective for liver disorders, skin diseases, and digestive problems.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-flask"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--charcoal);">Basti</h3>
+                    <p style="color: #5a5a5a; line-height: 1.7;">Medicated enema therapy for Vata balance. Treats arthritis, neurological disorders, and constipation.</p>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-head-side-virus"></i>
+                    <h3 style="font-size: 1.2rem; margin-bottom: 10px; color: var(--charcoal);">Nasya</h3>
+                    <p style="color: #5a5a5a; line-height: 1.7;">Nasal administration of herbal oils. Relieves sinusitis, migraines, and mental stress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OTHER TREATMENTS GRID -->
+    <section style="padding: 100px 6%; background: var(--cream);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title split-lines">Specialized Therapies</h2>
+            <p class="section-subtitle split-lines" style="margin-bottom: 60px;">Targeted treatments for specific health concerns</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px;">
+
+                <!-- Abhyanga -->
+                <div id="abhyanga" class="treatment-card-large" style="scroll-margin-top: 100px;">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800" alt="Abhyanga Massage">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Abhyanga</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">Full-Body Ayurvedic Massage</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Therapeutic oil massage to improve circulation, reduce stress, enhance flexibility, and promote deep relaxation.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shirodhara -->
+                <div id="shirodhara" class="treatment-card-large" style="scroll-margin-top: 100px;">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?q=80&w=800" alt="Shirodhara">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Shirodhara</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">The Ultimate Stress Relief</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Continuous stream of warm herbal oil on the forehead. Calms the mind, reduces anxiety, improves sleep quality.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Kati Basti -->
+                <div class="treatment-card-large">
+                    <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=800" alt="Kati Basti">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Kati Basti</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">Lower Back Pain Relief</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Warm medicated oil therapy for the lumbar region. Highly effective for chronic back pain and disc problems.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Udvartana -->
+                <div class="treatment-card-large">
+                    <img src="https://images.unsplash.com/photo-1596178060810-4dd9cf085f93?q=80&w=800" alt="Udvartana">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Udvartana</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">Herbal Powder Massage</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Dry powder massage for weight loss, cellulite reduction, skin toning, and improved metabolism.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Netra Tarpana -->
+                <div class="treatment-card-large">
+                    <img src="https://images.unsplash.com/photo-1585366119957-e9730b6d0f60?q=80&w=800" alt="Netra Tarpana">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Netra Tarpana</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">Eye Rejuvenation Therapy</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Ghee bath for eyes to improve vision, reduce strain, and treat dry eyes and other eye disorders.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mukha Lepam -->
+                <div class="treatment-card-large">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=800" alt="Mukha Lepam">
+                    <div class="treatment-overlay">
+                        <h3 style="font-family: 'Cormorant', serif; font-size: 2.5rem; margin-bottom: 12px;">Mukha Lepam</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 15px; opacity: 0.95;">Herbal Facial Treatment</p>
+                        <p style="line-height: 1.7; opacity: 0.85; margin-bottom: 20px;">
+                            Natural face pack therapy for glowing skin, acne treatment, pigmentation, and anti-aging benefits.
+                        </p>
+                        <a href="contact.html" class="btn-secondary" style="display: inline-flex; border-color: white; color: white;">
+                            Learn More
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TREATMENT PROCESS - BUILD TRUST -->
+    <section style="padding: 100px 6%; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title split-lines">Your Treatment Journey</h2>
+            <p class="section-subtitle split-lines" style="margin-bottom: 60px;">From consultation to complete wellness</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px;">
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--sage), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 2rem; font-weight: 700;">1</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">Consultation</h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">In-depth pulse diagnosis (Nadi Pariksha) and health history review to understand your unique Prakriti.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--gold), var(--terracotta)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 2rem; font-weight: 700;">2</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">Custom Plan</h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Personalized treatment protocol designed specifically for your dosha imbalances and health goals.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--terracotta), var(--sage)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 2rem; font-weight: 700;">3</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">Treatment</h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Authentic therapies administered by trained practitioners using genuine Ayurvedic herbs and oils.</p>
+                </div>
+
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--sage), var(--terracotta)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; color: white; font-size: 2rem; font-weight: 700;">4</div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal);">Follow-up</h3>
+                    <p style="color: #5a5a5a; line-height: 1.8;">Ongoing support with diet plans, lifestyle guidance, and progress monitoring for lasting results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section style="padding: 100px 6%; background: linear-gradient(135deg, var(--charcoal), #1a1a1a); text-align: center; color: white;">
+        <div style="max-width: 800px; margin: 0 auto;">
+            <h2 style="font-family: 'Cormorant', serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 25px;">Start Your Healing Journey Today</h2>
+            <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 40px; line-height: 1.8;">
+                Choose the natural path to wellness. Book a consultation and discover which treatment is right for you.
+            </p>
+            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                <a href="contact.html" class="btn-primary" style="background: var(--sage); font-size: 1.1rem; padding: 20px 50px;">
+                    Book Consultation
+                    <i class="fas fa-calendar-check"></i>
+                </a>
+                <a href="tel:917827000875" class="btn-secondary" style="border-color: white; color: white; font-size: 1.1rem; padding: 20px 50px;">
+                    <i class="fas fa-phone"></i>
+                    Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="scripts/includes.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

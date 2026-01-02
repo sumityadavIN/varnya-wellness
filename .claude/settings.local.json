@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(start index.html)",
+      "Bash(tree:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(for file in laser-treatments.html aesthetic-services.html traditional-therapies.html specialized-programs.html)",
+      "Bash(do echo \"Processing $file...\")",
+      "Bash(done)",
+      "Bash(python:*)",
+      "Bash(copy \"C:\\\\xampp\\\\htdocs\\\\Varnya\\\\archive\\\\assets\\\\drrajan.jpeg\" \"C:\\\\xampp\\\\htdocs\\\\Varnya\\\\assets\\\\images\"\" && copy \"C:xampphtdocsVarnyaarchiveassetsdrayushi.jpeg\" \"C:xampphtdocsVarnyaassetsimages\"\")",
+      "Bash(del \"c:\\\\xampp\\\\htdocs\\\\Varnya\\\\README.md\")",
+      "Bash(for dir in about contact medifacials laser-treatments aesthetic-services traditional-therapies specialized-programs panchakarma other-therapies)",
+      "Bash(do if [ -f \"c:\\\\xampp\\\\htdocs\\\\Varnya$dir\\\\index.html\" ])",
+      "Bash(then echo \"$dir has index.html\")",
+      "Bash(else echo \"$dir MISSING index.html\")",
+      "Bash(fi)"
+    ]
+  }
+}

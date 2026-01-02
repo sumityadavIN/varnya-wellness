@@ -13,8 +13,11 @@ function loadHeader() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) return;
 
-    // All pages using this script are in subdirectories, so use ../includes/
-    fetch('../includes/header.html')
+    // Determine base path - if we're in /varnya-wellness/, use that as base
+    const basePath = getBasePath();
+    const headerPath = `${basePath}includes/header.html`;
+
+    fetch(headerPath)
         .then(response => {
             if (!response.ok) throw new Error('Header not found');
             return response.text();
@@ -33,8 +36,11 @@ function loadFooter() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (!footerPlaceholder) return;
 
-    // All pages using this script are in subdirectories, so use ../includes/
-    fetch('../includes/footer.html')
+    // Determine base path - if we're in /varnya-wellness/, use that as base
+    const basePath = getBasePath();
+    const footerPath = `${basePath}includes/footer.html`;
+
+    fetch(footerPath)
         .then(response => {
             if (!response.ok) throw new Error('Footer not found');
             return response.text();
@@ -46,6 +52,19 @@ function loadFooter() {
             console.error('Error loading footer:', error);
             // Fallback: footer is already in the page
         });
+}
+
+// Get the base path for the site (handles GitHub Pages subdirectory deployment)
+function getBasePath() {
+    const path = window.location.pathname;
+
+    // If path includes /varnya-wellness/, extract everything up to and including it
+    if (path.includes('/varnya-wellness/')) {
+        return '/varnya-wellness/';
+    }
+
+    // For local development or root deployment
+    return '/';
 }
 
 // Initialize header functionality after loading

@@ -24,6 +24,7 @@ function loadHeader() {
         })
         .then(data => {
             headerPlaceholder.innerHTML = data;
+            fixHeaderLinks(basePath);
             initializeHeader();
         })
         .catch(error => {
@@ -47,6 +48,7 @@ function loadFooter() {
         })
         .then(data => {
             footerPlaceholder.innerHTML = data;
+            fixFooterLinks(basePath);
         })
         .catch(error => {
             console.error('Error loading footer:', error);
@@ -65,6 +67,58 @@ function getBasePath() {
 
     // For local development or root deployment
     return '/';
+}
+
+// Fix header links to use absolute paths based on base path
+function fixHeaderLinks(basePath) {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    // Fix all navigation links
+    navbar.querySelectorAll('a[href^="../"]').forEach(link => {
+        const href = link.getAttribute('href');
+        // Convert ../page to /varnya-wellness/page
+        const newHref = href.replace('../', basePath);
+        link.setAttribute('href', newHref);
+    });
+
+    // Fix logo image
+    const logoImg = navbar.querySelector('img[src^="../"]');
+    if (logoImg) {
+        const src = logoImg.getAttribute('src');
+        logoImg.setAttribute('src', src.replace('../', basePath));
+    }
+
+    // Fix mobile menu links
+    const mobileMenu = document.querySelector('.mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a[href^="../"]').forEach(link => {
+            const href = link.getAttribute('href');
+            const newHref = href.replace('../', basePath);
+            link.setAttribute('href', newHref);
+        });
+    }
+}
+
+// Fix footer links to use absolute paths based on base path
+function fixFooterLinks(basePath) {
+    const footer = document.querySelector('.footer');
+    if (!footer) return;
+
+    // Fix all footer links
+    footer.querySelectorAll('a[href^="../"]').forEach(link => {
+        const href = link.getAttribute('href');
+        // Convert ../page to /varnya-wellness/page
+        const newHref = href.replace('../', basePath);
+        link.setAttribute('href', newHref);
+    });
+
+    // Fix logo image
+    const logoImg = footer.querySelector('img[src^="../"]');
+    if (logoImg) {
+        const src = logoImg.getAttribute('src');
+        logoImg.setAttribute('src', src.replace('../', basePath));
+    }
 }
 
 // Initialize header functionality after loading

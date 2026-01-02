@@ -13,7 +13,12 @@ function loadHeader() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) return;
 
-    fetch('./includes/header.html')
+    // Determine the correct path based on current location
+    const path = window.location.pathname.includes('/varnya-wellness/') || window.location.pathname !== '/'
+        ? '../includes/header.html'
+        : './includes/header.html';
+
+    fetch(path)
         .then(response => {
             if (!response.ok) throw new Error('Header not found');
             return response.text();
@@ -32,7 +37,12 @@ function loadFooter() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (!footerPlaceholder) return;
 
-    fetch('./includes/footer.html')
+    // Determine the correct path based on current location
+    const path = window.location.pathname.includes('/varnya-wellness/') || window.location.pathname !== '/'
+        ? '../includes/footer.html'
+        : './includes/footer.html';
+
+    fetch(path)
         .then(response => {
             if (!response.ok) throw new Error('Footer not found');
             return response.text();

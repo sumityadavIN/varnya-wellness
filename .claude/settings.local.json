@@ -15,7 +15,9 @@
       "Bash(do if [ -f \"c:\\\\xampp\\\\htdocs\\\\Varnya$dir\\\\index.html\" ])",
       "Bash(then echo \"$dir has index.html\")",
       "Bash(else echo \"$dir MISSING index.html\")",
-      "Bash(fi)"
+      "Bash(fi)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix GitHub Pages paths for subdirectory deployment\n\nUpdated all internal links to use relative paths \\(./path\\) instead of absolute paths \\(/path\\) to work correctly with GitHub Pages repository-based deployment at https://sumityadavin.github.io/varnya-wellness/\n\nChanges:\n- Updated index.html navigation and asset links to use relative paths\n- Modified includes/header.html with relative navigation paths\n- Modified includes/footer.html with relative navigation paths  \n- Updated scripts/includes.js to dynamically detect path structure\n\nThis ensures the site works correctly when deployed to a GitHub Pages subdirectory.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

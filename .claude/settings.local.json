@@ -21,7 +21,10 @@
       "Bash(git push:*)",
       "Bash(cat:*)",
       "Bash(git commit -m \"$\\(cat <<''EOF''\nFix header/footer loading in subdirectory pages\n\nSimplified the path logic in includes.js - since only subdirectory pages use this script \\(index.html has header/footer hardcoded\\), the path should always be ''../includes/'' for all pages that use this loader.\n\nThis fixes the issue where header and footer were not loading on pages like /about, /medifacials, etc.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix header/footer loading with absolute paths for GitHub Pages\n\nChanged includes.js to use absolute paths based on detected base path instead of relative paths. This fixes the issue where ''../includes/'' was resolving incorrectly on GitHub Pages.\n\nChanges:\n- Added getBasePath\\(\\) function to detect /varnya-wellness/ in URL\n- Use absolute paths like /varnya-wellness/includes/header.html\n- Added .nojekyll to prevent Jekyll processing on GitHub Pages\n\nThis ensures header/footer load correctly on all subdirectory pages.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix header/footer loading with absolute paths for GitHub Pages\n\nChanged includes.js to use absolute paths based on detected base path instead of relative paths. This fixes the issue where ''../includes/'' was resolving incorrectly on GitHub Pages.\n\nChanges:\n- Added getBasePath\\(\\) function to detect /varnya-wellness/ in URL\n- Use absolute paths like /varnya-wellness/includes/header.html\n- Added .nojekyll to prevent Jekyll processing on GitHub Pages\n\nThis ensures header/footer load correctly on all subdirectory pages.\n\n🤖 Generated with [Claude Code]\\(https://claude.com/claude-code\\)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)"
     ]
   }
 }

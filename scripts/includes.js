@@ -13,11 +13,10 @@ function loadHeader() {
     const headerPlaceholder = document.getElementById('header-placeholder');
     if (!headerPlaceholder) return;
 
-    // Determine base path - if we're in /varnya-wellness/, use that as base
+    // All pages are now at root level, so use ./includes/
     const basePath = getBasePath();
-    const headerPath = `${basePath}includes/header.html`;
 
-    fetch(headerPath)
+    fetch('./includes/header.html')
         .then(response => {
             if (!response.ok) throw new Error('Header not found');
             return response.text();
@@ -37,11 +36,10 @@ function loadFooter() {
     const footerPlaceholder = document.getElementById('footer-placeholder');
     if (!footerPlaceholder) return;
 
-    // Determine base path - if we're in /varnya-wellness/, use that as base
+    // All pages are now at root level, so use ./includes/
     const basePath = getBasePath();
-    const footerPath = `${basePath}includes/footer.html`;
 
-    fetch(footerPath)
+    fetch('./includes/footer.html')
         .then(response => {
             if (!response.ok) throw new Error('Footer not found');
             return response.text();
@@ -74,33 +72,33 @@ function fixHeaderLinks(basePath) {
     const navbar = document.querySelector('.navbar');
     if (!navbar) return;
 
-    // Fix all navigation links
-    navbar.querySelectorAll('a[href^="../"]').forEach(link => {
+    // Fix all navigation links that start with ./
+    navbar.querySelectorAll('a[href^="./"]').forEach(link => {
         const href = link.getAttribute('href');
-        // Convert ../page to /varnya-wellness/page (replaceAll for multiple ../)
-        const newHref = href.replaceAll('../', basePath);
+        // Convert ./page to /varnya-wellness/page
+        const newHref = href.replace('./', basePath);
         link.setAttribute('href', newHref);
     });
 
     // Fix logo link and image
     const logoLink = navbar.querySelector('.logo');
-    if (logoLink && logoLink.getAttribute('href')?.startsWith('../')) {
+    if (logoLink && logoLink.getAttribute('href')?.startsWith('./')) {
         const href = logoLink.getAttribute('href');
-        logoLink.setAttribute('href', href.replaceAll('../', basePath));
+        logoLink.setAttribute('href', href.replace('./', basePath));
     }
 
-    const logoImg = navbar.querySelector('img[src^="../"]');
+    const logoImg = navbar.querySelector('img[src^="./"]');
     if (logoImg) {
         const src = logoImg.getAttribute('src');
-        logoImg.setAttribute('src', src.replaceAll('../', basePath));
+        logoImg.setAttribute('src', src.replace('./', basePath));
     }
 
     // Fix mobile menu links
     const mobileMenu = document.querySelector('.mobile-menu');
     if (mobileMenu) {
-        mobileMenu.querySelectorAll('a[href^="../"]').forEach(link => {
+        mobileMenu.querySelectorAll('a[href^="./"]').forEach(link => {
             const href = link.getAttribute('href');
-            const newHref = href.replaceAll('../', basePath);
+            const newHref = href.replace('./', basePath);
             link.setAttribute('href', newHref);
         });
     }
@@ -111,19 +109,19 @@ function fixFooterLinks(basePath) {
     const footer = document.querySelector('.footer');
     if (!footer) return;
 
-    // Fix all footer links
-    footer.querySelectorAll('a[href^="../"]').forEach(link => {
+    // Fix all footer links that start with ./
+    footer.querySelectorAll('a[href^="./"]').forEach(link => {
         const href = link.getAttribute('href');
-        // Convert ../page to /varnya-wellness/page (replaceAll for multiple ../)
-        const newHref = href.replaceAll('../', basePath);
+        // Convert ./page to /varnya-wellness/page
+        const newHref = href.replace('./', basePath);
         link.setAttribute('href', newHref);
     });
 
     // Fix logo image
-    const logoImg = footer.querySelector('img[src^="../"]');
+    const logoImg = footer.querySelector('img[src^="./"]');
     if (logoImg) {
         const src = logoImg.getAttribute('src');
-        logoImg.setAttribute('src', src.replaceAll('../', basePath));
+        logoImg.setAttribute('src', src.replace('./', basePath));
     }
 }
 

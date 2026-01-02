@@ -114,9 +114,9 @@ body.loading footer {
 .mobile-menu.active .mobile-dropdown-header .line,
 .mobile-menu.active .mobile-dropdown-header i { transform: translateY(0); }
 .mobile-dropdown.active .mobile-dropdown-header i { transform: rotate(180deg); }
-.mobile-dropdown-content { max-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; padding-left: 30px; margin-top: 0; transition: all 0.4s ease; }
+.mobile-dropdown-content { max-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; padding-left: 30px; margin-top: 0; transition: all 0.4s ease; align-items: center; }
 .mobile-dropdown.active .mobile-dropdown-content { max-height: 500px; margin-top: 1rem; }
-.mobile-dropdown-content a { font-size: 1.4rem; font-weight: 400; opacity: 0.8; }
+.mobile-dropdown-content a { font-size: 1.4rem; font-weight: 400; opacity: 0.8; text-align: center; }
 .mobile-dropdown-content a:hover { opacity: 1; color: var(--sage); }
 
 /* ========== HERO ========== */

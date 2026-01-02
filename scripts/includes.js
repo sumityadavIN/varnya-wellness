@@ -136,23 +136,27 @@ function initializeHeader() {
 
         // Check if GSAP is loaded
         if (typeof gsap !== 'undefined') {
-            const menuTimeline = gsap.timeline({ paused: true });
-
-            menuTimeline
+            // Separate timeline for hamburger icon (instant)
+            const hamburgerTimeline = gsap.timeline({ paused: true });
+            hamburgerTimeline
                 .to('.hamburger span:nth-child(1)', {
                     y: 3.25,
                     rotation: 45,
                     scaleX: 0.75,
-                    duration: 1,
+                    duration: 0.4,
                     ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
                 }, 0)
                 .to('.hamburger span:nth-child(2)', {
                     y: -3.25,
                     rotation: -45,
                     scaleX: 0.75,
-                    duration: 1,
+                    duration: 0.4,
                     ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
-                }, 0)
+                }, 0);
+
+            // Separate timeline for menu (with delay)
+            const menuTimeline = gsap.timeline({ paused: true });
+            menuTimeline
                 .to('.mobile-menu-bg', {
                     rotate: 0,
                     duration: 1,
@@ -167,10 +171,14 @@ function initializeHeader() {
 
             hamburger.addEventListener('click', () => {
                 if (isMenuOpen) {
+                    // Reverse hamburger immediately
+                    hamburgerTimeline.reverse();
                     menuTimeline.reverse();
                     mobileMenu.classList.remove('active');
                     document.body.style.overflow = '';
                 } else {
+                    // Play hamburger immediately
+                    hamburgerTimeline.play();
                     menuTimeline.play();
                     mobileMenu.classList.add('active');
                     document.body.style.overflow = 'hidden';
@@ -178,13 +186,33 @@ function initializeHeader() {
                 isMenuOpen = !isMenuOpen;
             });
 
+            // Mobile dropdown toggles
+            document.querySelectorAll('.mobile-dropdown-header').forEach(header => {
+                header.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const dropdown = header.parentElement;
+
+                    // Close all other dropdowns
+                    document.querySelectorAll('.mobile-dropdown').forEach(d => {
+                        if (d !== dropdown) d.classList.remove('active');
+                    });
+
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                });
+            });
+
             // Close mobile menu on link click
             document.querySelectorAll('.mobile-menu-items a').forEach(link => {
                 link.addEventListener('click', () => {
+                    hamburgerTimeline.reverse();
                     menuTimeline.reverse();
                     mobileMenu.classList.remove('active');
                     document.body.style.overflow = '';
                     isMenuOpen = false;
+
+                    // Close all dropdowns
+                    document.querySelectorAll('.mobile-dropdown').forEach(d => d.classList.remove('active'));
                 });
             });
         } else {

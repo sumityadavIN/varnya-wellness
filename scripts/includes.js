@@ -77,16 +77,22 @@ function fixHeaderLinks(basePath) {
     // Fix all navigation links
     navbar.querySelectorAll('a[href^="../"]').forEach(link => {
         const href = link.getAttribute('href');
-        // Convert ../page to /varnya-wellness/page
-        const newHref = href.replace('../', basePath);
+        // Convert ../page to /varnya-wellness/page (replaceAll for multiple ../)
+        const newHref = href.replaceAll('../', basePath);
         link.setAttribute('href', newHref);
     });
 
-    // Fix logo image
+    // Fix logo link and image
+    const logoLink = navbar.querySelector('.logo');
+    if (logoLink && logoLink.getAttribute('href')?.startsWith('../')) {
+        const href = logoLink.getAttribute('href');
+        logoLink.setAttribute('href', href.replaceAll('../', basePath));
+    }
+
     const logoImg = navbar.querySelector('img[src^="../"]');
     if (logoImg) {
         const src = logoImg.getAttribute('src');
-        logoImg.setAttribute('src', src.replace('../', basePath));
+        logoImg.setAttribute('src', src.replaceAll('../', basePath));
     }
 
     // Fix mobile menu links
@@ -94,7 +100,7 @@ function fixHeaderLinks(basePath) {
     if (mobileMenu) {
         mobileMenu.querySelectorAll('a[href^="../"]').forEach(link => {
             const href = link.getAttribute('href');
-            const newHref = href.replace('../', basePath);
+            const newHref = href.replaceAll('../', basePath);
             link.setAttribute('href', newHref);
         });
     }
@@ -108,8 +114,8 @@ function fixFooterLinks(basePath) {
     // Fix all footer links
     footer.querySelectorAll('a[href^="../"]').forEach(link => {
         const href = link.getAttribute('href');
-        // Convert ../page to /varnya-wellness/page
-        const newHref = href.replace('../', basePath);
+        // Convert ../page to /varnya-wellness/page (replaceAll for multiple ../)
+        const newHref = href.replaceAll('../', basePath);
         link.setAttribute('href', newHref);
     });
 
@@ -117,7 +123,7 @@ function fixFooterLinks(basePath) {
     const logoImg = footer.querySelector('img[src^="../"]');
     if (logoImg) {
         const src = logoImg.getAttribute('src');
-        logoImg.setAttribute('src', src.replace('../', basePath));
+        logoImg.setAttribute('src', src.replaceAll('../', basePath));
     }
 }
 

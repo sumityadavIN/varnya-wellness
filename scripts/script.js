@@ -1,5 +1,5 @@
 // Wait for DOM to be ready
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // ========== GSAP SETUP ==========
     if (typeof gsap === 'undefined') {
@@ -16,6 +16,24 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     gsap.registerPlugin(ScrollTrigger);
+
+    // ========== LENIS SMOOTH SCROLL ==========
+    const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true,
+        wheelMultiplier: 1,
+        touchMultiplier: 2,
+    });
+
+    // Integrate Lenis with GSAP ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => {
+        lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
 
     // ========== LOADER ANIMATION ==========
     window.scrollTo(0, 0);
@@ -148,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hasScrolled = true;
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', function () {
         // Hide scroll indicator on first scroll
         if (!hasScrolled && scrollIndicator && window.scrollY > 50) {
             scrollIndicator.classList.add('hidden');
@@ -156,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         if (!ticking) {
-            window.requestAnimationFrame(function() {
+            window.requestAnimationFrame(function () {
                 const currentScrollY = window.pageYOffset;
 
                 // Add scrolled class for styling
@@ -188,27 +206,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobileMenu');
     let isMenuOpen = false;
 
-    // Separate timeline for hamburger icon (instant)
-    const hamburgerTimeline = gsap.timeline({ paused: true });
-    hamburgerTimeline
+    const menuTimeline = gsap.timeline({ paused: true });
+
+    menuTimeline
         .to('.hamburger span:nth-child(1)', {
             y: 3.25,
             rotation: 45,
             scaleX: 0.75,
-            duration: 0.4,
+            duration: 1,
             ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
         }, 0)
         .to('.hamburger span:nth-child(2)', {
             y: -3.25,
             rotation: -45,
             scaleX: 0.75,
-            duration: 0.4,
+            duration: 1,
             ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
-        }, 0);
-
-    // Separate timeline for menu (with delay)
-    const menuTimeline = gsap.timeline({ paused: true });
-    menuTimeline
+        }, 0)
         .to('.mobile-menu-bg', {
             rotate: 0,
             duration: 1,
@@ -219,30 +233,14 @@ document.addEventListener('DOMContentLoaded', function() {
             duration: 0.75,
             ease: 'power3.out',
             stagger: 0.1
-        }, 0.6)
-        .to('.mobile-dropdown-header .line', {
-            y: 0,
-            duration: 0.75,
-            ease: 'power3.out',
-            stagger: 0.1
-        }, 0.6)
-        .to('.mobile-dropdown-header i', {
-            y: 0,
-            duration: 0.75,
-            ease: 'power3.out',
-            stagger: 0.1
         }, 0.6);
 
     hamburger.addEventListener('click', () => {
         if (isMenuOpen) {
-            // Reverse hamburger immediately
-            hamburgerTimeline.reverse();
             menuTimeline.reverse();
             mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
         } else {
-            // Play hamburger immediately
-            hamburgerTimeline.play();
             menuTimeline.play();
             mobileMenu.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -250,33 +248,13 @@ document.addEventListener('DOMContentLoaded', function() {
         isMenuOpen = !isMenuOpen;
     });
 
-    // Mobile dropdown toggles
-    document.querySelectorAll('.mobile-dropdown-header').forEach(header => {
-        header.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const dropdown = header.parentElement;
-
-            // Close all other dropdowns
-            document.querySelectorAll('.mobile-dropdown').forEach(d => {
-                if (d !== dropdown) d.classList.remove('active');
-            });
-
-            // Toggle current dropdown
-            dropdown.classList.toggle('active');
-        });
-    });
-
     // Close mobile menu on link click
     document.querySelectorAll('.mobile-menu-items a').forEach(link => {
         link.addEventListener('click', () => {
-            hamburgerTimeline.reverse();
             menuTimeline.reverse();
             mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
             isMenuOpen = false;
-
-            // Close all dropdowns
-            document.querySelectorAll('.mobile-dropdown').forEach(d => d.classList.remove('active'));
         });
     });
 
@@ -325,20 +303,51 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ========== SCROLL TRIGGER FOR CARDS (Replaces IntersectionObserver) ==========
-    // This uses GSAP to handle the fade-in, which is more reliable
+    // ========== HERO PARALLAX EFFECT ==========
+    const heroTitle = document.querySelector('.hero-title');
+    const heroCta = document.querySelector('.hero-cta');
+
+    if (heroTitle) {
+        // Parallax: Title moves up faster than scroll
+        gsap.to(heroTitle, {
+            y: -150,
+            scrollTrigger: {
+                trigger: '.hero-curtain',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 0.5
+            }
+        });
+    }
+
+    if (heroCta) {
+        gsap.to(heroCta, {
+            y: -80,
+            opacity: 0,
+            scrollTrigger: {
+                trigger: '.hero-curtain',
+                start: 'top top',
+                end: '50% top',
+                scrub: 0.5
+            }
+        });
+    }
+
+    // ========== SCROLL TRIGGER FOR CARDS ==========
+    // Slowed animations for premium feel
     const cards = document.querySelectorAll('.philosophy-card, .treatment-card, .testimonial-card');
 
     cards.forEach(card => {
         gsap.fromTo(card,
-            { y: 30 },
+            { y: 40, opacity: 0 },
             {
                 y: 0,
-                duration: 0.8,
-                ease: 'power2.out',
+                opacity: 1,
+                duration: 1.2,
+                ease: 'expo.out',
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 85%", // Triggers when top of card hits 85% of viewport height
+                    start: "top 85%",
                     toggleActions: "play none none reverse"
                 }
             }
@@ -367,7 +376,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             if (Math.abs(rect.top - currentTop) > 5) {
-                // New line detected
                 lines.push(currentLine.join(' '));
                 currentLine = [word.textContent];
                 currentTop = rect.top;
@@ -380,7 +388,6 @@ document.addEventListener('DOMContentLoaded', function() {
             lines.push(currentLine.join(' '));
         }
 
-        // Replace content with wrapped lines
         element.innerHTML = lines.map(line =>
             `<span class="line-wrapper"><span class="line">${line}</span></span>`
         ).join('');
@@ -393,14 +400,14 @@ document.addEventListener('DOMContentLoaded', function() {
     splitElements.forEach(element => {
         const lines = splitIntoLines(element);
 
-        // Animate each line
+        // Animate each line - slowed for premium feel
         lines.forEach((line, index) => {
             gsap.to(line, {
                 y: 0,
                 opacity: 1,
-                duration: 0.8,
-                ease: "power3.out",
-                delay: index * 0.1, // Stagger delay for each line
+                duration: 1.4,
+                ease: "expo.out",
+                delay: index * 0.15,
                 scrollTrigger: {
                     trigger: element,
                     start: "top 85%",

@@ -273,35 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ========== DRAG SCROLL FOR TREATMENTS ==========
-    const scrollWrapper = document.querySelector('.scroll-wrapper');
-    if (scrollWrapper) {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
 
-        scrollWrapper.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - scrollWrapper.offsetLeft;
-            scrollLeft = scrollWrapper.scrollLeft;
-        });
-
-        scrollWrapper.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        scrollWrapper.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        scrollWrapper.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - scrollWrapper.offsetLeft;
-            const walk = (x - startX) * 2;
-            scrollWrapper.scrollLeft = scrollLeft - walk;
-        });
-    }
 
     // ========== HERO PARALLAX EFFECT ==========
     const heroTitle = document.querySelector('.hero-title');

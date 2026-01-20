@@ -945,22 +945,21 @@ section {
     margin-bottom: 60px;
 }
 
-.scroll-wrapper {
-    display: flex;
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 35px;
     padding: 20px 6%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    user-select: none;
-    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.scroll-wrapper::-webkit-scrollbar {
+/* Scroll wrapper backup just in case */
+.scroll-wrapper {
     display: none;
 }
 
 .treatment-card {
-    flex: 0 0 400px;
     background: white;
     border-radius: 25px;
     overflow: hidden;
@@ -970,6 +969,9 @@ section {
     display: block;
     color: inherit;
     cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .treatment-card:hover {
@@ -985,6 +987,7 @@ section {
     justify-content: center;
     position: relative;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .treatment-image::before {

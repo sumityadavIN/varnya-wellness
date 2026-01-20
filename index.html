@@ -281,9 +281,9 @@
 
     <!-- Trust Strip -->
     <div class="trust-strip">
-        <span>15+ Years Experience</span>
+        <span>5+ Years Experience</span>
         <span class="divider">|</span>
-        <span>5000+ Patients</span>
+        <span>4783+ Patients</span>
         <span class="divider">|</span>
         <span>BAMS Certified</span>
     </div>
@@ -319,7 +319,7 @@
         <div class="treatments-header">
             <h2 class="section-title split-lines" style="text-align: center;">Our Services</h2>
         </div>
-        <div class="services-grid">
+        <div class="scroll-wrapper">
             <a href="./medifacials" class="treatment-card">
                 <div class="treatment-image">
                     <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&q=80"
@@ -362,13 +362,7 @@
     <!-- EXPERIENCE -->
     <section class="experience" id="about">
         <div class="experience-wrapper">
-            <div class="experience-image">
-                <img src="assets/images/drrajan.jpeg" alt="Dr. Rajan - Lead Ayurvedic Physician">
-                <div class="experience-badge">
-                    <div class="number">15+</div>
-                    <div class="text">Years of Excellence</div>
-                </div>
-            </div>
+            <!-- Text First in HTML for Mobile Context -->
             <div class="experience-content">
                 <span class="eyebrow">Why Choose Varnya</span>
                 <h2>Excellence in Every Detail</h2>
@@ -401,8 +395,23 @@
                         </div>
                     </li>
                 </ul>
-                <a href="./about" class="btn-primary">Meet Our Doctors <i class="fas fa-arrow-right"></i></a>
+                <!-- Desktop Button -->
+                <a href="./about" class="btn-primary desktop-only-btn">Meet Our Doctors <i
+                        class="fas fa-arrow-right"></i></a>
             </div>
+
+            <div class="experience-image">
+                <img src="assets/images/drrajan.jpeg" alt="Dr. Rajan - Lead Ayurvedic Physician">
+                <div class="experience-badge">
+                    <div class="number">15+</div>
+                    <div class="text">Years of Excellence</div>
+                </div>
+            </div>
+
+            <!-- Mobile Button (Appears after image on mobile) -->
+            <a href="./about" class="btn-primary mobile-only-btn"
+                style="margin-top: 30px; width: 100%; text-align: center; justify-content: center;">Meet Our Doctors <i
+                    class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -414,18 +423,30 @@
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <img src="assets/images/ritu_review.jpeg" alt="Ritu Sheroan" class="testimonial-avatar">
+                <div class="google-review-badge">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google">
+                    <span>Verified Customer</span>
+                </div>
                 <h4 class="testimonial-name">Ritu Sheroan</h4>
                 <p class="testimonial-text">"Life-changing experience with Dr. Ayushi and Dr. Rajan. Panchakarma
                     resolved my PCOD, acne, and weight concerns — naturally."</p>
             </div>
             <div class="testimonial-card">
                 <img src="assets/images/kiran_review.jpeg" alt="Kirandeep" class="testimonial-avatar">
+                <div class="google-review-badge">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google">
+                    <span>Verified Customer</span>
+                </div>
                 <h4 class="testimonial-name">Kirandeep</h4>
                 <p class="testimonial-text">"The Panchakarma session was deeply rejuvenating. I left feeling restored in
                     ways I hadn't expected."</p>
             </div>
             <div class="testimonial-card">
                 <img src="assets/images/Olivia_review.jpeg" alt="Olivia" class="testimonial-avatar">
+                <div class="google-review-badge">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google">
+                    <span>Verified Customer</span>
+                </div>
                 <h4 class="testimonial-name">Olivia</h4>
                 <p class="testimonial-text">"Dr. Rajan and his team are genuinely warm, professional, and deeply
                     skilled. I'm grateful for every session."</p>
@@ -433,6 +454,10 @@
             <div class="testimonial-card">
                 <img src="https://lh3.googleusercontent.com/a-/ALV-UjXmNqkMB9ZGXS3wL5bTOwQG8MVQlvmC3qaC2_H4NpxX-4_0OXl_rw=w72-h72-p-rp-mo-br100"
                     alt="Paras Gambhiria" class="testimonial-avatar">
+                <div class="google-review-badge">
+                    <img src="https://www.gstatic.com/images/branding/product/1x/googleg_48dp.png" alt="Google">
+                    <span>Verified Customer</span>
+                </div>
                 <h4 class="testimonial-name">Paras Gambhiria</h4>
                 <p class="testimonial-text">"took ayurvedic treatment regarding my fatty liver and other gastric issues
                     i was suffering from almost 2 years . Thankfully i came across Varnya wellness and had extremely
@@ -445,7 +470,7 @@
         </div>
     </section>
 
-    <!-- FAQ SECTION - OBJECTION HANDLING -->
+    <!-- FAQ SECTION - ACCORDION -->
     <section style="padding: 100px 6%; background: var(--cream);">
         <div style="max-width: 900px; margin: 0 auto;">
             <h2 class="section-title split-lines">Common Questions</h2>
@@ -453,81 +478,130 @@
                 Everything you need to know before your first visit
             </p>
 
-            <div style="display: grid; gap: 25px;">
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--sage);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--sage);"></i>
-                        How long does treatment take to show results?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">Most patients notice improvements within 2-3 weeks.
-                        Chronic conditions may require 6-12 weeks for complete healing. We provide realistic timelines
-                        during your consultation based on your specific condition.</p>
+            <div style="display: grid; gap: 20px;">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                    <div class="faq-header"
+                        style="padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--charcoal); display: flex; align-items: center; gap: 15px; margin: 0; font-weight: 500;">
+                            <i class="fas fa-leaf" style="color: var(--sage); font-size: 1rem;"></i>
+                            How long does treatment take to show results?
+                        </h3>
+                        <i class="fas fa-chevron-down faq-icon" style="color: #ccc; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-content"
+                        style="height: 0; overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div style="padding: 0 30px 30px; padding-left: 70px;">
+                            <p style="color: #5a5a5a; line-height: 1.7; font-size: 0.95rem;">Most patients notice
+                                improvements within 2-3 weeks. Chronic conditions may require 6-12 weeks for complete
+                                healing. We provide realistic timelines during your consultation based on your specific
+                                condition.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--gold);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--gold);"></i>
-                        Is Panchakarma safe? Are there side effects?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">Panchakarma is completely safe when administered by
-                        qualified doctors. Our BAMS-certified practitioners follow traditional protocols. You may
-                        experience mild detox symptoms (fatigue, headache) for 1-2 days as toxins are eliminated - this
-                        is normal and temporary.</p>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                    <div class="faq-header"
+                        style="padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--charcoal); display: flex; align-items: center; gap: 15px; margin: 0; font-weight: 500;">
+                            <i class="fas fa-shield-heart" style="color: var(--gold); font-size: 1rem;"></i>
+                            Is Panchakarma safe? Are there side effects?
+                        </h3>
+                        <i class="fas fa-chevron-down faq-icon" style="color: #ccc; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-content"
+                        style="height: 0; overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div style="padding: 0 30px 30px; padding-left: 70px;">
+                            <p style="color: #5a5a5a; line-height: 1.7; font-size: 0.95rem;">Panchakarma is completely
+                                safe when administered by qualified B.A.M.S doctors. Some mild fatigue ("detox flu")
+                                during the process is normal as toxins are eliminated, but complications are extremely
+                                rare.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--terracotta);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--terracotta);"></i>
-                        What's the consultation fee and treatment cost?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">Initial consultation: ₹1000 (includes pulse diagnosis
-                        and personalized treatment plan). Treatment costs vary based on your condition. Panchakarma
-                        programs typically range from ₹15,000-₹45,000. We provide detailed cost breakdown before you
-                        start.</p>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                    <div class="faq-header"
+                        style="padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--charcoal); display: flex; align-items: center; gap: 15px; margin: 0; font-weight: 500;">
+                            <i class="fas fa-comments" style="color: var(--terracotta); font-size: 1rem;"></i>
+                            Do I need a consultation first?
+                        </h3>
+                        <i class="fas fa-chevron-down faq-icon" style="color: #ccc; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-content"
+                        style="height: 0; overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div style="padding: 0 30px 30px; padding-left: 70px;">
+                            <p style="color: #5a5a5a; line-height: 1.7; font-size: 0.95rem;">Yes. Ayurvedic treatment is
+                                personalized. Our doctors must assess your unique body type (Prakriti) and current
+                                imbalances (Vikriti) before prescribing any therapy or medicine.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--sage);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--sage);"></i>
-                        Can I continue my current medications?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">Yes! Ayurveda works alongside modern medicine. We'll
-                        review your current medications and create a safe, integrated treatment plan. Many patients
-                        gradually reduce dependency on medications as their condition improves naturally.</p>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                    <div class="faq-header"
+                        style="padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--charcoal); display: flex; align-items: center; gap: 15px; margin: 0; font-weight: 500;">
+                            <i class="fas fa-wallet" style="color: var(--sage); font-size: 1rem;"></i>
+                            What's the consultation fee and treatment cost?
+                        </h3>
+                        <i class="fas fa-chevron-down faq-icon" style="color: #ccc; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-content"
+                        style="height: 0; overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div style="padding: 0 30px 30px; padding-left: 70px;">
+                            <p style="color: #5a5a5a; line-height: 1.7; font-size: 0.95rem;">Initial consultation: ₹1000
+                                (includes pulse diagnosis and personalized treatment plan). Treatment costs vary based
+                                on your condition. Panchakarma programs typically range from ₹15,000-₹45,000. We provide
+                                detailed cost breakdown before you start.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--gold);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--gold);"></i>
-                        Do I need to stay at the clinic during treatment?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">No residential stay required. Most treatments are
-                        outpatient - you visit for 1-2 hours daily. For intensive Panchakarma (7-21 days), we can
-                        arrange nearby accommodation if you're traveling from outside Gurugram.</p>
+
+                <!-- FAQ Item 5 -->
+                <div class="faq-item"
+                    style="background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); overflow: hidden;">
+                    <div class="faq-header"
+                        style="padding: 25px 30px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <h3
+                            style="font-size: 1.2rem; color: var(--charcoal); display: flex; align-items: center; gap: 15px; margin: 0; font-weight: 500;">
+                            <i class="fas fa-pills" style="color: var(--gold); font-size: 1rem;"></i>
+                            Can I continue my current medications?
+                        </h3>
+                        <i class="fas fa-chevron-down faq-icon" style="color: #ccc; transition: transform 0.3s;"></i>
+                    </div>
+                    <div class="faq-content"
+                        style="height: 0; overflow: hidden; transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
+                        <div style="padding: 0 30px 30px; padding-left: 70px;">
+                            <p style="color: #5a5a5a; line-height: 1.7; font-size: 0.95rem;">Yes! Ayurveda works
+                                alongside modern medicine. We'll review your current medications and create a safe,
+                                integrated treatment plan. Many patients gradually reduce dependency on medications as
+                                their condition improves naturally.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div
-                    style="background: white; padding: 35px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.08); border-left: 4px solid var(--terracotta);">
-                    <h3
-                        style="font-size: 1.3rem; margin-bottom: 15px; color: var(--charcoal); display: flex; align-items: center; gap: 12px;">
-                        <i class="fas fa-question-circle" style="color: var(--terracotta);"></i>
-                        What should I bring to my first appointment?
-                    </h3>
-                    <p style="color: #5a5a5a; line-height: 1.8;">Bring: (1) Any recent medical reports/test results (2)
-                        List of current medications (3) Comfortable clothing for examination (4) Questions about your
-                        health concerns. First visit takes 45-60 minutes including pulse diagnosis and treatment
-                        planning.</p>
-                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p style="margin-bottom: 25px; color: #666;">Still have questions?</p>
+                <a href="#contact" class="btn-primary btn-expert"
+                    style="background: transparent; border: 1px solid var(--charcoal); color: var(--charcoal);">
+                    Talk to an Expert
+                </a>
             </div>
         </div>
     </section>
@@ -601,8 +675,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#philosophy">Our Philosophy</a></li>
                     <li><a href="#treatments">Treatments</a></li>
-                    <li><a href="./about">About Us</a></li>
-                    <!-- <li><a href="#">Blog</a></li> -->
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#">Blog</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -618,16 +692,26 @@
             <div class="footer-col">
                 <h3>Visit Us</h3>
                 <div class="contact-info">
-                    <p style="margin-bottom: 20px;"><i class="fas fa-map-marker-alt"></i><a
-                            href="https://maps.app.goo.gl/CCapT8dG8BMvXSCo7" target="_blank"
-                            style="color: rgba(255,255,255,0.7); text-decoration: none;">7-P, Pocket A, Sector
-                            47<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gurugram, Haryana 122018</a></p>
-                    <p style="margin-bottom: 20px;"><i class="fas fa-phone"></i><a href="tel:917827000875"
-                            style="color: rgba(255,255,255,0.7); text-decoration: none;">+91 78270 00875</a></p>
-                    <p style="margin-bottom: 20px;"><i class="fas fa-envelope"></i><a
-                            href="mailto:care@varnyawellness.com"
-                            style="color: rgba(255,255,255,0.7); text-decoration: none;">care@varnyawellness.com</a></p>
-                    <p style="margin-top: 15px;"><i class="fas fa-map"></i> Serving clients across India</p>
+                    <p class="hover-link-wrapper" style="margin-bottom: 20px;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <a href="https://maps.app.goo.gl/CCapT8dG8BMvXSCo7" target="_blank" class="footer-hover-link">
+                            7-P, Pocket A, Sector 47<br>Gurugram, Haryana 122018
+                        </a>
+                    </p>
+                    <p class="hover-link-wrapper" style="margin-bottom: 20px;">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:917827000875" class="footer-hover-link">
+                            +91 78270 00875
+                        </a>
+                    </p>
+                    <p class="hover-link-wrapper" style="margin-bottom: 20px;">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:care@varnyawellness.com" class="footer-hover-link">
+                            care@varnyawellness.com
+                        </a>
+                    </p>
+                    <p style="margin-top: 15px; opacity: 0.6;"><i class="fas fa-map"></i> Serving clients across India
+                    </p>
                 </div>
             </div>
         </div>

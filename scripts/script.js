@@ -156,50 +156,53 @@ document.addEventListener('DOMContentLoaded', function () {
     // ========== NAVBAR SCROLL EFFECT WITH AUTO-HIDE ==========
     const navbar = document.getElementById('navbar');
     const scrollIndicator = document.querySelector('.scroll-indicator');
-    let lastScrollY = window.scrollY;
-    let ticking = false;
-    let hasScrolled = false;
 
-    // Hide scroll indicator immediately if page is already scrolled on load
-    if (scrollIndicator && window.scrollY > 50) {
-        scrollIndicator.classList.add('hidden');
-        hasScrolled = true;
-    }
+    if (navbar) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+        let hasScrolled = false;
 
-    window.addEventListener('scroll', function () {
-        // Hide scroll indicator on first scroll
-        if (!hasScrolled && scrollIndicator && window.scrollY > 50) {
+        // Hide scroll indicator immediately if page is already scrolled on load
+        if (scrollIndicator && window.scrollY > 50) {
             scrollIndicator.classList.add('hidden');
             hasScrolled = true;
         }
 
-        if (!ticking) {
-            window.requestAnimationFrame(function () {
-                const currentScrollY = window.pageYOffset;
+        window.addEventListener('scroll', function () {
+            // Hide scroll indicator on first scroll
+            if (!hasScrolled && scrollIndicator && window.scrollY > 50) {
+                scrollIndicator.classList.add('hidden');
+                hasScrolled = true;
+            }
 
-                // Add scrolled class for styling
-                if (currentScrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    const currentScrollY = window.pageYOffset;
 
-                // Auto-hide on scroll down, show on scroll up
-                if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                    // Scrolling down
-                    navbar.classList.add('navbar-hidden');
-                } else {
-                    // Scrolling up
-                    navbar.classList.remove('navbar-hidden');
-                }
+                    // Add scrolled class for styling
+                    if (currentScrollY > 50) {
+                        navbar.classList.add('scrolled');
+                    } else {
+                        navbar.classList.remove('scrolled');
+                    }
 
-                lastScrollY = currentScrollY;
-                ticking = false;
-            });
+                    // Auto-hide on scroll down, show on scroll up
+                    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                        // Scrolling down
+                        navbar.classList.add('navbar-hidden');
+                    } else {
+                        // Scrolling up
+                        navbar.classList.remove('navbar-hidden');
+                    }
 
-            ticking = true;
-        }
-    });
+                    lastScrollY = currentScrollY;
+                    ticking = false;
+                });
+
+                ticking = true;
+            }
+        });
+    }
 
     // ========== MOBILE MENU ANIMATION ==========
     const hamburger = document.getElementById('hamburger');
@@ -436,5 +439,70 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     });
+
+    // ========== FAQ ACCORDION ==========
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const header = item.querySelector('.faq-header');
+        const content = item.querySelector('.faq-content');
+        const icon = item.querySelector('.faq-icon');
+
+        header.addEventListener('click', () => {
+            const isOpen = content.style.height && content.style.height !== '0px';
+
+            // Close all other items (optional - mimicking accordion behavior)
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    const otherContent = otherItem.querySelector('.faq-content');
+                    const otherIcon = otherItem.querySelector('.faq-icon');
+                    otherContent.style.height = '0px';
+                    otherIcon.style.transform = 'rotate(0deg)';
+                }
+            });
+
+            // Toggle current item
+            if (isOpen) {
+                content.style.height = '0px';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.height = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        });
+    });
+
+    // ========== DRAG SCROLL FOR SERVICES ==========
+    const scrollWrapper = document.querySelector('.scroll-wrapper');
+    if (scrollWrapper) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollWrapper.addEventListener('mousedown', (e) => {
+            isDown = true;
+            scrollWrapper.classList.add('active');
+            startX = e.pageX - scrollWrapper.offsetLeft;
+            scrollLeft = scrollWrapper.scrollLeft;
+        });
+
+        scrollWrapper.addEventListener('mouseleave', () => {
+            isDown = false;
+            scrollWrapper.classList.remove('active');
+        });
+
+        scrollWrapper.addEventListener('mouseup', () => {
+            isDown = false;
+            scrollWrapper.classList.remove('active');
+        });
+
+        scrollWrapper.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - scrollWrapper.offsetLeft;
+            const walk = (x - startX) * 2; // Scroll-fast
+            scrollWrapper.scrollLeft = scrollLeft - walk;
+        });
+    }
 
 }); // End DOMContentLoaded

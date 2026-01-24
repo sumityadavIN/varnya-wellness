@@ -2192,3 +2192,23 @@ section {
         transform: translateY(0);
     }
 }
+
+/* Override for light hero pages (White background hero) */
+body.light-hero .navbar:not(.scrolled) .nav-links>a,
+body.light-hero .navbar:not(.scrolled) .nav-links>.nav-dropdown,
+body.light-hero .navbar:not(.scrolled) .logo {
+    color: var(--charcoal);
+    text-shadow: none;
+}
+
+body.light-hero .navbar:not(.scrolled) .logo img {
+    filter: none;
+}
+
+body.light-hero .navbar:not(.scrolled) .hamburger span {
+    background: var(--charcoal);
+}
+
+body.light-hero .navbar:not(.scrolled) .hamburger {
+    border-color: rgba(26, 26, 26, 0.3);
+}

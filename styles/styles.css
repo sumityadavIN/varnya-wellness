@@ -203,6 +203,36 @@ body.loading footer {
     letter-spacing: 0.5px;
 }
 
+/* Book Consultation Button - Prevent expansion and keep centered */
+.nav-links .btn-book {
+    background: var(--sage);
+    color: white !important;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-shadow: none !important;
+    white-space: nowrap;
+    width: auto;
+    flex-shrink: 0;
+    flex-grow: 0;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.nav-links .btn-book:hover {
+    background: var(--deep-green);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(156, 175, 136, 0.4);
+}
+
+/* Remove underline animation for btn-book */
+.nav-links .btn-book:after {
+    display: none;
+}
+
 .nav-links>a:after,
 .nav-dropdown:after {
     content: '';
@@ -230,18 +260,23 @@ body.loading footer {
     cursor: pointer;
 }
 
-.nav-dropdown>span {
+.nav-dropdown>span,
+.nav-dropdown>a {
     display: flex;
     align-items: center;
     gap: 5px;
+    text-decoration: none;
+    color: inherit;
 }
 
-.nav-dropdown>span i {
+.nav-dropdown>span i,
+.nav-dropdown>a i {
     font-size: 0.7rem;
     transition: transform 0.3s;
 }
 
-.nav-dropdown:hover>span i {
+.nav-dropdown:hover>span i,
+.nav-dropdown:hover>a i {
     transform: rotate(180deg);
 }
 
@@ -325,6 +360,26 @@ body.loading footer {
     border-left: 3px solid transparent !important;
 }
 
+.dropdown-merged-section {
+    flex: 2;
+    padding: 0 20px;
+}
+
+.dropdown-sub-columns {
+    display: flex;
+    gap: 0;
+}
+
+.dropdown-sub-columns .dropdown-column {
+    flex: 1;
+}
+
+.text-center-heading {
+    text-align: center;
+    padding-left: 0 !important;
+    border-left: none !important;
+}
+
 .dropdown-heading:hover {
     color: var(--deep-green) !important;
     background: transparent !important;
@@ -363,36 +418,110 @@ body.loading footer {
     display: none;
     width: 60px;
     height: 60px;
-    padding: 20px;
+    padding: 0;
+    /* Removed padding to let blob fill */
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    border: 1px solid rgba(156, 175, 136, 0.3);
-    border-radius: 100px;
+    gap: 6px;
+    /* Slightly adjusted gap */
+    border: none;
+    /* No border */
+    border-radius: 50%;
     cursor: pointer;
     background: transparent;
-    transition: all 0.3s;
+    position: relative;
+    /* For blob positioning */
+    z-index: 1002;
+    align-items: center;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Springy effect */
 }
 
 .hamburger:hover {
-    border-color: var(--sage);
+    border-color: transparent;
+    transform: scale(1.1);
+}
+
+.blob-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    /* Fixed size slightly larger than hamburger */
+    height: 80px;
+    z-index: 1;
+    /* Behind spans */
+    pointer-events: none;
+    animation: blobRotate 12s linear infinite;
+    /* Animation on the SVG container */
+}
+
+.blob-bg path {
+    fill: none;
+    /* No fill - just outline */
+    stroke: white;
+    /* White by default */
+    stroke-width: 1.5px;
+    vector-effect: non-scaling-stroke;
+    transition: stroke 0.3s ease;
+}
+
+/* Turn blob green when menu is open */
+body.menu-open .blob-bg path {
+    stroke: var(--sage) !important;
+}
+
+@keyframes blobRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 .hamburger span {
-    width: 100%;
-    height: 1.5px;
-    background: var(--charcoal);
+    width: 24px;
+    /* Fixed width for icon inside blob */
+    height: 2px;
+    background: white;
+    /* White by default */
     transition: all 0.3s;
     border-radius: 2px;
+    position: relative;
+    z-index: 2;
+    /* Above blob */
 }
 
-/* Hamburger white on transparent navbar */
+/* Keep white on transparent navbar */
 .navbar:not(.scrolled) .hamburger span {
     background: white;
 }
 
+/* Keep white even when scrolled, until clicked */
+.navbar.scrolled .hamburger span {
+    background: white;
+}
+
+.navbar:not(.scrolled) .hamburger {
+    border-color: transparent;
+}
+
 .navbar:not(.scrolled) .hamburger {
     border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* When mobile menu is open, make the X button sage green for visibility on white bg */
+.mobile-menu.active~.navbar .hamburger span,
+body.menu-open .hamburger span {
+    background: var(--sage) !important;
+}
+
+/* Make logo sage green when mobile menu is open */
+body.menu-open .logo img {
+    filter: brightness(0) saturate(100%) invert(67%) sepia(43%) saturate(350%) hue-rotate(60deg) brightness(92%) contrast(85%) !important;
 }
 
 .mobile-menu {
@@ -426,6 +555,7 @@ body.loading footer {
     transform: scale(1) rotate(0deg);
 }
 
+/* Center mobile menu items vertically */
 .mobile-menu-items {
     position: absolute;
     width: 100%;
@@ -433,12 +563,41 @@ body.loading footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* This will center everything */
     align-items: center;
-    gap: 2rem;
-    padding: 100px 6% 50px;
+    gap: 2.5rem;
+    /* Slightly increased gap for better spacing */
+    padding: 80px 6%;
 }
 
-.mobile-menu-items a {
+/* Adjust social links spacing to not interfere with vertical centering */
+.mobile-menu-items .mobile-social-links {
+    margin-top: 1rem;
+    /* Fixed small gap instead of auto */
+    padding-bottom: 0;
+}
+
+.mobile-social-links .social-links {
+    justify-content: center;
+}
+
+.mobile-social-links .social-links a {
+    background: rgba(156, 175, 136, 0.2);
+    color: var(--sage);
+    box-shadow: none;
+}
+
+.mobile-social-links .social-links a:hover {
+    background: var(--sage);
+    color: white;
+}
+
+/* Prevent underline on social icons */
+.mobile-social-links .social-links a:after {
+    display: none !important;
+}
+
+.mobile-menu-items a:not(.social-links a) {
     text-decoration: none;
     color: var(--charcoal);
     font-size: 2rem;
@@ -446,12 +605,32 @@ body.loading footer {
     text-transform: uppercase;
     overflow: hidden;
     display: inline-block;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.mobile-menu-items a:not(.social-links a):hover {
+    color: var(--sage);
+}
+
+.mobile-menu-items a:not(.social-links a):after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--sage);
+    transition: width 0.3s ease;
+}
+
+.mobile-menu-items a:not(.social-links a):hover:after {
+    width: 100%;
 }
 
 .mobile-menu-items a .line {
     display: block;
-    transform: translateY(110%);
-    transition: transform 0.75s cubic-bezier(0.85, 0, 0.15, 1);
+    /* Removed slide up animation */
 }
 
 .mobile-menu.active .mobile-menu-items a .line {
@@ -976,23 +1155,24 @@ section {
     margin-bottom: 60px;
 }
 
-.services-grid {
+.services-grid-layout {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 35px;
-    padding: 20px 6%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 6%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* Scroll wrapper backup just in case */
-.scroll-wrapper {
-    display: none;
+/* Mobile: Stack vertically */
+@media (max-width: 900px) {
+    .services-grid-layout {
+        grid-template-columns: 1fr;
+    }
 }
 
 .treatment-card {
-    flex: 0 0 350px;
-    /* Fixed width for scrolling */
+    /* Immersive Layout */
     background: white;
     border-radius: 25px;
     overflow: hidden;
@@ -1002,16 +1182,13 @@ section {
     display: block;
     color: inherit;
     cursor: pointer;
-    height: 100%;
+    height: 450px;
+    /* Fixed height for immersive feel */
+    position: relative;
     display: flex;
     flex-direction: column;
-}
-
-/* Mobile responsiveness for cards */
-@media (max-width: 768px) {
-    .treatment-card {
-        flex: 0 0 280px;
-    }
+    justify-content: flex-end;
+    /* Push content to bottom */
 }
 
 .treatment-card:hover {
@@ -1020,115 +1197,82 @@ section {
 }
 
 .treatment-image {
-    height: 280px;
-    background: linear-gradient(135deg, var(--sage), var(--terracotta));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.treatment-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.treatment-card:hover .treatment-image img {
+    transform: scale(1.05);
 }
 
 .treatment-image::before {
+    /* Dark overlay for entire image to ensure text pop */
     content: '';
     position: absolute;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
-    animation: rotate 20s linear infinite;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.treatment-image i {
-    font-size: 4.5rem;
-    color: white;
-    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.9) 100%);
     z-index: 2;
 }
 
+/* Removed rotating animation elements */
+
 .treatment-content {
+    position: relative;
+    z-index: 3;
     padding: 30px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-    /* Fill remaining space */
+    text-align: left;
+    /* Aligned left as per immersive style */
+    width: 100%;
 }
 
 .treatment-content h3 {
     font-family: 'Cormorant', serif;
-    font-size: 1.8rem;
-    margin-bottom: 12px;
-    color: var(--charcoal);
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .treatment-content p {
-    color: #6a6a6a;
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 0.95rem;
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .learn-more {
-    color: var(--sage);
+    color: white;
     text-decoration: none;
     font-weight: 600;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     transition: gap 0.3s;
     text-transform: uppercase;
     font-size: 0.8rem;
-    pointer-events: none;
-    margin-top: auto;
-    /* Push to bottom */
+    letter-spacing: 1px;
 }
 
 .treatment-card:hover .learn-more {
     gap: 15px;
 }
 
-/* ========== SCROLL WRAPPER (SERVICES) ========== */
-.scroll-wrapper {
-    display: flex;
-    gap: 35px;
-    padding: 20px 6%;
-    padding-bottom: 40px;
-    /* Space for shadow/hover */
-    overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    user-select: none;
-    justify-content: flex-start;
-    /* Left align for scroll */
-    cursor: grab;
-}
 
-.scroll-wrapper::-webkit-scrollbar {
-    display: none;
-}
-
-.scroll-wrapper:active {
-    cursor: grabbing;
-}
-
-/* On larger screens, if content fits, center it */
-@media (min-width: 1400px) {
-    .scroll-wrapper {
-        justify-content: center;
-    }
-}
 
 
 /* ========== EXPERIENCE ========== */
@@ -1630,6 +1774,17 @@ section {
     margin-right: 12px;
 }
 
+.footer-hover-link {
+    text-decoration: none !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: all 0.3s;
+}
+
+.footer-hover-link:hover {
+    color: white !important;
+    padding-left: 5px;
+}
+
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: 35px;
@@ -1644,7 +1799,7 @@ section {
 }
 
 /* ========== RESPONSIVE ========== */
-@media (max-width: 1400px) {
+@media (max-width: 1700px) {
     .nav-links {
         display: none;
     }

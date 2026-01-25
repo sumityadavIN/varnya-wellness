@@ -1,5 +1,5 @@
 // Load Header and Footer dynamically
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     loadIncludes();
 });
 
@@ -139,19 +139,23 @@ function initializeHeader() {
             // Separate timeline for hamburger icon (instant)
             const hamburgerTimeline = gsap.timeline({ paused: true });
             hamburgerTimeline
-                .to('.hamburger span:nth-child(1)', {
-                    y: 3.25,
+                .to('.hamburger span:nth-of-type(1)', {
+                    y: 8,
                     rotation: 45,
-                    scaleX: 0.75,
-                    duration: 0.4,
-                    ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
+                    duration: 0.35,
+                    ease: 'power2.out'
                 }, 0)
-                .to('.hamburger span:nth-child(2)', {
-                    y: -3.25,
+                .to('.hamburger span:nth-of-type(2)', {
+                    opacity: 0,
+                    scaleX: 0,
+                    duration: 0.15,
+                    ease: 'power2.out'
+                }, 0)
+                .to('.hamburger span:nth-of-type(3)', {
+                    y: -8,
                     rotation: -45,
-                    scaleX: 0.75,
-                    duration: 0.4,
-                    ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
+                    duration: 0.35,
+                    ease: 'power2.out'
                 }, 0);
 
             // Separate timeline for menu (with delay)
@@ -159,28 +163,24 @@ function initializeHeader() {
             menuTimeline
                 .to('.mobile-menu-bg', {
                     rotate: 0,
-                    duration: 1,
-                    ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
-                }, 0)
-                .to('.mobile-menu-items a .line', {
-                    y: 0,
-                    duration: 0.75,
-                    ease: 'power3.out',
-                    stagger: 0.1
-                }, 0.6);
+                    duration: 0.6,
+                    ease: 'power2.out'
+                }, 0);
 
             hamburger.addEventListener('click', () => {
                 if (isMenuOpen) {
                     // Reverse hamburger immediately
-                    hamburgerTimeline.reverse();
-                    menuTimeline.reverse();
+                    hamburgerTimeline.timeScale(2).reverse();
+                    menuTimeline.timeScale(2).reverse();
                     mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                     document.body.style.overflow = '';
                 } else {
                     // Play hamburger immediately
-                    hamburgerTimeline.play();
-                    menuTimeline.play();
+                    hamburgerTimeline.timeScale(1).play();
+                    menuTimeline.timeScale(1).play();
                     mobileMenu.classList.add('active');
+                    document.body.classList.add('menu-open');
                     document.body.style.overflow = 'hidden';
                 }
                 isMenuOpen = !isMenuOpen;
@@ -205,9 +205,10 @@ function initializeHeader() {
             // Close mobile menu on link click
             document.querySelectorAll('.mobile-menu-items a').forEach(link => {
                 link.addEventListener('click', () => {
-                    hamburgerTimeline.reverse();
-                    menuTimeline.reverse();
+                    hamburgerTimeline.timeScale(2).reverse();
+                    menuTimeline.timeScale(2).reverse();
                     mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                     document.body.style.overflow = '';
                     isMenuOpen = false;
 
@@ -217,12 +218,14 @@ function initializeHeader() {
             });
         } else {
             // Fallback if GSAP is not loaded (simple toggle)
-            hamburger.addEventListener('click', function() {
+            hamburger.addEventListener('click', function () {
                 if (isMenuOpen) {
                     mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                     document.body.style.overflow = '';
                 } else {
                     mobileMenu.classList.add('active');
+                    document.body.classList.add('menu-open');
                     document.body.style.overflow = 'hidden';
                 }
                 isMenuOpen = !isMenuOpen;
@@ -232,6 +235,7 @@ function initializeHeader() {
             document.querySelectorAll('.mobile-menu-items a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
                     document.body.style.overflow = '';
                     isMenuOpen = false;
                 });
@@ -254,7 +258,7 @@ function initializeHeader() {
             hasScrolled = true;
         }
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             // Hide scroll indicator on first scroll
             if (!hasScrolled && scrollIndicator && window.scrollY > 50) {
                 scrollIndicator.classList.add('hidden');
@@ -262,7 +266,7 @@ function initializeHeader() {
             }
 
             if (!ticking) {
-                window.requestAnimationFrame(function() {
+                window.requestAnimationFrame(function () {
                     const currentScrollY = window.scrollY;
 
                     // Add scrolled class for styling
@@ -323,7 +327,7 @@ function initializeHeader() {
     if (window.innerWidth > 768) {
         const serviceItems = document.querySelectorAll('.service-item');
         serviceItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
+            item.addEventListener('mouseenter', function () {
                 // Remove expanded class from all other items
                 serviceItems.forEach(otherItem => {
                     if (otherItem !== item) {

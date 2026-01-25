@@ -212,40 +212,40 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuTimeline = gsap.timeline({ paused: true });
 
     menuTimeline
-        .to('.hamburger span:nth-child(1)', {
-            y: 3.25,
+        .to('.hamburger span:nth-of-type(1)', {
+            y: 8,
             rotation: 45,
-            scaleX: 0.75,
-            duration: 1,
-            ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
+            duration: 0.35,
+            ease: 'power2.out'
         }, 0)
-        .to('.hamburger span:nth-child(2)', {
-            y: -3.25,
+        .to('.hamburger span:nth-of-type(2)', {
+            opacity: 0,
+            scaleX: 0,
+            duration: 0.15,
+            ease: 'power2.out'
+        }, 0)
+        .to('.hamburger span:nth-of-type(3)', {
+            y: -8,
             rotation: -45,
-            scaleX: 0.75,
-            duration: 1,
-            ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
+            duration: 0.35,
+            ease: 'power2.out'
         }, 0)
         .to('.mobile-menu-bg', {
             rotate: 0,
-            duration: 1,
-            ease: 'cubic-bezier(0.85, 0, 0.15, 1)'
-        }, 0)
-        .to('.mobile-menu-items a .line', {
-            y: 0,
-            duration: 0.75,
-            ease: 'power3.out',
-            stagger: 0.1
-        }, 0.6);
+            duration: 0.6,
+            ease: 'power2.out'
+        }, 0);
 
     hamburger.addEventListener('click', () => {
         if (isMenuOpen) {
-            menuTimeline.reverse();
+            menuTimeline.timeScale(2).reverse();
             mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
         } else {
-            menuTimeline.play();
+            menuTimeline.timeScale(1).play();
             mobileMenu.classList.add('active');
+            document.body.classList.add('menu-open');
             document.body.style.overflow = 'hidden';
         }
         isMenuOpen = !isMenuOpen;
@@ -254,8 +254,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Close mobile menu on link click
     document.querySelectorAll('.mobile-menu-items a').forEach(link => {
         link.addEventListener('click', () => {
-            menuTimeline.reverse();
+            menuTimeline.timeScale(2).reverse();
             mobileMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = '';
             isMenuOpen = false;
         });

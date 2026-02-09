@@ -467,6 +467,11 @@ body.loading footer {
     transition: stroke 0.3s ease;
 }
 
+/* Change blob to sage green when navbar is scrolled */
+.navbar.scrolled .blob-bg path {
+    stroke: var(--sage);
+}
+
 /* Turn blob green when menu is open */
 body.menu-open .blob-bg path {
     stroke: var(--sage) !important;
@@ -500,9 +505,9 @@ body.menu-open .blob-bg path {
     background: white;
 }
 
-/* Keep white even when scrolled, until clicked */
+/* Change to sage green when scrolled for visibility on white navbar */
 .navbar.scrolled .hamburger span {
-    background: white;
+    background: var(--sage);
 }
 
 .navbar:not(.scrolled) .hamburger {
@@ -575,6 +580,18 @@ body.menu-open .logo img {
     margin-top: 1rem;
     /* Fixed small gap instead of auto */
     padding-bottom: 0;
+    /* Hide social icons when menu is closed */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show social icons when menu is active */
+.mobile-menu.active .mobile-social-links {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0.3s;
+    /* Slight delay on open for stagger effect */
 }
 
 .mobile-social-links .social-links {
@@ -585,6 +602,8 @@ body.menu-open .logo img {
     background: rgba(156, 175, 136, 0.2);
     color: var(--sage);
     box-shadow: none;
+    /* Remove any transition delays */
+    transition: all 0.3s ease !important;
 }
 
 .mobile-social-links .social-links a:hover {
@@ -675,7 +694,16 @@ body::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: grayscale(20%) saturate(0.85) contrast(1.05);
+    /* Subtle blur to soften pixelation + enhanced color grading */
+    filter: blur(1.5px) grayscale(15%) saturate(0.9) contrast(1.08) brightness(0.95);
+    /* Slight zoom to hide edge artifacts and create depth */
+    transform: scale(1.05);
+    transition: transform 8s ease-out;
+}
+
+/* Optional: Subtle zoom animation on load for premium feel */
+.hero-curtain:hover .hero-bg-img {
+    transform: scale(1.08);
 }
 
 .hero-bg::after {
@@ -685,7 +713,13 @@ body::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    /* Enhanced gradient overlay - darker and more sophisticated */
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.35) 0%,
+            rgba(0, 0, 0, 0.45) 50%,
+            rgba(0, 0, 0, 0.6) 100%);
+    /* Add subtle vignette effect */
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.3);
 }
 
 .hero-content-center {

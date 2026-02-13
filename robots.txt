@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://varnyawellness.com/sitemap.xml
+Sitemap: https://www.varnyawellness.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1

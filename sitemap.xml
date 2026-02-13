@@ -4,7 +4,7 @@
 
     <!-- Homepage -->
     <url>
-        <loc>https://varnyawellness.com/</loc>
+        <loc>https://www.varnyawellness.com/</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -12,7 +12,7 @@
 
     <!-- About Page -->
     <url>
-        <loc>https://varnyawellness.com/about</loc>
+        <loc>https://www.varnyawellness.com/about</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -20,7 +20,7 @@
 
     <!-- Contact Page -->
     <url>
-        <loc>https://varnyawellness.com/contact</loc>
+        <loc>https://www.varnyawellness.com/contact</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -28,42 +28,42 @@
 
     <!-- Service Pages -->
     <url>
-        <loc>https://varnyawellness.com/treatments</loc>
+        <loc>https://www.varnyawellness.com/treatments</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://varnyawellness.com/aesthetic-services</loc>
+        <loc>https://www.varnyawellness.com/aesthetic-services</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://varnyawellness.com/traditional-therapies</loc>
+        <loc>https://www.varnyawellness.com/traditional-therapies</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://varnyawellness.com/panchakarma</loc>
+        <loc>https://www.varnyawellness.com/panchakarma</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://varnyawellness.com/other-therapies</loc>
+        <loc>https://www.varnyawellness.com/other-therapies</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
 
     <url>
-        <loc>https://varnyawellness.com/specialized-programs</loc>
+        <loc>https://www.varnyawellness.com/specialized-programs</loc>
         <lastmod>2026-02-10</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
